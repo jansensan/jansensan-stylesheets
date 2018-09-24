@@ -1,0 +1,28 @@
+.descriptionStyle() {
+  font-family: @ffSerif;
+  font-style: italic;
+  font-size: 11pt;
+  letter-spacing: -0.5pt;
+  color: @paleGrey;
+  
+  @media (min-width: @phone) {
+    font-size: 12.5pt;
+    letter-spacing: -0.25pt;
+  }
+  @media (min-width: @tablet) {
+    font-size: 13pt;
+    letter-spacing: 0pt;
+  }
+}
+
+.focusOnLight() {
+  border-color: @transparentBlue;
+  box-shadow: 0 0 0 4px @transparentBlue;
+  outline: 0 !important;
+}
+
+.focusOnDark() {
+  border-color: @transparentLightBlue;
+  box-shadow: 0 0 0 4px @transparentLightBlue;
+  outline: 0 !important;
+}
