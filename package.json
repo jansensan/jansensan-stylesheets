@@ -1,0 +1,16 @@
+{
+  "name": "jansensan-stylesheets",
+  "description": "Common stylesheets for the different websites hosted and managed by Mat Janson Blanchet.",
+  "author": "Mat Janson Blanchet <mat.jb@jansensan.net> (https://jansensan.net)",
+  "version": "0.1.0",
+  "license": "UNLICENSED",
+  "main": "less/jansensan-stylesheet.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://jansensan@github.com/jansensan/jansensan-stylesheets.git"
+  },
+  "bugs": {
+    "url": "https://github.com/jansensan/jansensan-stylesheets/issues"
+  },
+  "homepage": "https://github.com/jansensan/jansensan-stylesheets#readme"
+}
