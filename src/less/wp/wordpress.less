@@ -1,6 +1,17 @@
 .sidebar {
+  display: none;
+  float: left;
   padding-top: 14px;
   padding-bottom: 32px;
+
+  @media (min-width: @desktop) {
+    display: block;
+    width: 272px;
+    margin-left: 32px;
+  }
+  @media (min-width: @largeDesktop) {
+    width: 376px;
+  }
 
   h3 {
     font-size: 1.8em;
