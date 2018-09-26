@@ -1,3 +1,17 @@
+// wordpress overrides
+.wp-video-shortcode,
+.wp-video {
+  width: @phoneContentCol !important;
+  height: 192px !important; // 16:9 of width
+
+  @media (min-width: @tablet) {
+    width: 640px !important;
+    height: 360px !important; // 16:9 of width
+  }
+}
+
+
+// custom classes
 .sidebar {
   display: none;
   float: left;
