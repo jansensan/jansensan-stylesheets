@@ -2,7 +2,7 @@
   "name": "jansensan-stylesheets",
   "description": "Common stylesheets for the different websites hosted and managed by Mat Janson Blanchet.",
   "author": "Mat Janson Blanchet <mat.jb@jansensan.net> (https://jansensan.net)",
-  "version": "0.3.1",
+  "version": "0.4.0",
   "license": "UNLICENSED",
   "main": "less/jansensan-stylesheet.js",
   "repository": {
