@@ -1,0 +1,504 @@
+//===========/----------------------------------------------
+//  [_IMP]  /  Imports
+//=========/------------------------------------------------
+
+@import "common/variables.scss";
+@import "common/mixins.scss";
+
+
+//===========/----------------------------------------------
+//  [_HTML]  /  HTML ELEMENTS
+//=========/------------------------------------------------
+
+body, html {
+  background: #fff;
+  font-family: $ffSansSerif;
+  color: $nearBlack;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0.125em 0;
+  overflow-wrap: break-word;
+  line-height: 1;
+  font-family: $ffHeading;
+  font-weight: $fwExtraBold;
+
+  @media (min-width: $tablet) {
+    margin: 0.5em 0;
+  }
+}
+
+h1 {
+  letter-spacing: -0.9pt;
+  font-size: 2.5em;
+}
+
+h2 {
+  font-size: 1.9em;
+}
+
+p, pre {
+  line-height: 1.5;
+  margin: 0.75em 0;
+  text-align: left;
+}
+
+p {
+  font-size: $mainFontSize;
+  hyphens: auto;
+  text-align: justify;
+  word-break: normal;
+}
+
+pre, code {
+  font-family: $ffMonospace !important;
+  font-weight: $fwMedium !important;
+}
+
+pre ol,
+pre li,
+pre li div {
+  font-family: $ffMonospace !important;
+  font-weight: $fwMedium !important;
+  font-size: 10.5pt;
+  line-height: 1.25;
+  letter-spacing: -0.5pt;
+}
+
+pre {
+  li:nth-child(odd) {
+    background-color: $nearWhite;
+  }
+}
+
+a {
+  text-decoration: none;
+  color: $blue;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+article {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+}
+
+blockquote {
+  margin: 0 !important;
+  padding: 20px 32px;
+  background-color: $nearWhite;
+
+  font-family: $ffSerif;
+  font-style: italic;
+  color: $darkerGrey;
+
+  p {
+    text-align: justify;
+  }
+}
+
+input[type="text"],
+textarea {
+  padding: 8px;
+  background-color: $nearWhite;
+  border: 1px solid $paleGrey;
+  font-family: $ffSansSerif;
+  font-size: $mainFontSize;
+  color: $nearBlack;
+
+  -webkit-appearance: none;
+  -webkit-border-radius: 0;
+}
+
+header {
+  background: $nearBlack;
+  color: #fff;
+  padding: 16px 0 8px 0;
+  overflow: hidden;
+  margin-bottom: 32px;
+
+  :focus {
+    @include focusOnDark;
+  }
+
+  .header-title {
+    width: 100%;
+    float: left;
+    padding: 8px 0 16px;
+
+    @media (min-width: $desktop) {
+      width: 50%;
+    }
+  }
+
+  .title {
+    font-family: $ffHeading;
+    font-weight: $fwExtraBold;
+    font-size: 22pt;
+    line-height: 1;
+
+    @media (min-width: $tablet) {
+      font-size: 30pt;
+    }
+
+    a {
+      color: #fff;
+
+      &:hover {
+        text-decoration: none;
+      }
+    }
+  }
+
+  .description {
+    padding-bottom: 8px;
+    @include descriptionStyle;
+  }
+
+  nav {
+    float: left;
+    text-transform: uppercase;
+    font-family: $ffHeading;
+    font-weight: $fwSemiBold;
+    font-size: 10pt;
+    letter-spacing: -0.333pt;
+
+    @media (min-width: $tablet) {
+      font-size: 14pt;
+    }
+    @media (min-width: $desktop) {
+      float: right;
+    }
+
+    ul {
+      padding: 0;
+      margin: 0;
+    }
+
+    li {
+      float: left;
+      margin-right: 8px;
+
+      @media (min-width: $tablet) {
+        margin-right: 12px;
+      }
+      @media (min-width: $desktop) {
+        margin-right: 20px;
+      }
+      @media (min-width: $largeDesktop) {
+        margin-right: 30px;
+      }
+
+      &:nth-last-child(1) {
+        margin-right: 0;
+      }
+    }
+
+    a {
+      color: #fff;
+
+      &:hover {
+        text-decoration: none;
+        color: $blue;
+      }
+
+      &.selected {
+        color: $blue;
+      }
+    }
+  }
+}
+
+footer {
+  clear: both;
+  margin-top: 48px;
+  padding: 32px 0 48px 0;
+  background: $nearBlack;
+  color: #fff;
+  overflow: hidden;
+
+  :focus {
+    @include focusOnDark;
+  }
+
+  .site-meta {
+    overflow: hidden;
+    padding-bottom: 16px;
+  }
+
+  .title {
+    line-height: 1;
+    font-family: $ffHeading;
+    font-weight: $fwExtraBold;
+    font-size: 22pt;
+
+    @media (min-width: $tablet) {
+      font-size: 30pt;
+    }
+  }
+
+  .description {
+    @include descriptionStyle;
+  }
+
+  .column {
+    position: relative;
+    float: left;
+    width: 50%;
+
+    &.perso {
+      @media (min-width: $tablet) {
+        width: 25%;
+      }
+      @media (min-width: $desktop) {
+        width: 25%;
+      }
+    }
+
+    &.academia {
+      display: none;
+
+      @media (min-width: $tablet) {
+        display: block;
+        width: 25%;
+      }
+      @media (min-width: $desktop) {
+        width: 25%;
+      }
+    }
+
+    &.pro {
+      display: none;
+
+      @media (min-width: $tablet) {
+        display: block;
+        width: 25%;
+      }
+      @media (min-width: $desktop) {
+        width: 25%;
+      }
+    }
+
+    &.contact {
+      @media (min-width: $tablet) {
+        width: 25%;
+      }
+      @media (min-width: $desktop) {
+        width: 25%;
+      }
+    }
+  }
+
+  .heading {
+    font-family: $ffHeading;
+    font-weight: $fwExtraBold;
+    text-transform: uppercase;
+    color: $paleGrey;
+  }
+
+  ul {
+    padding: 0;
+    margin: 0 0 0 16px;
+
+    @media (min-width: $tablet) {
+      margin: 0 0 0 8px;
+    }
+    @media (min-width: $desktop)
+    {
+      margin: 0 0 0 16px;
+    }
+  }
+
+  li {
+    padding: 0;
+    margin: 0.45em 0;
+    list-style: none;
+    font-family: $ffSerif;
+    font-style: italic;
+    line-height: 1.125;
+
+    a {
+      color: #fff;
+    }
+  }
+}
+
+ol, ul {
+  padding: 0 0 0 20px;
+}
+
+:focus {
+  @include focusOnLight;
+}
+
+
+//===========/----------------------------------------------
+//  [_CLA]  /  COMMON CLASSES
+//=========/------------------------------------------------
+
+.centered {
+  position: relative;
+  margin: 0 auto;
+  width: $phoneContentCol;
+
+  @media (min-width: $tablet) {
+    width: $tabletContentCol;
+  }
+  @media (min-width: $desktop) {
+    width: $desktopContentCol;
+  }
+  @media (min-width: $largeDesktop) {
+    width: $largeContentCol;
+  }
+}
+
+.left-column-content {
+  float: left;
+  width: 100%;
+  padding-bottom: 16px;
+
+  @media (min-width: $tablet) {
+    width: $tabletContentCol;
+    padding-bottom: 32px;
+  }
+}
+
+.btn-primary {
+  display: inline-block;
+
+  padding: 6px 24px;
+  border: 0;
+  background-color: $nearBlack;
+
+  font-family: $ffSansSerif;
+  font-size: 12pt;
+  font-weight: $fwSemiBold;
+  color: $nearWhite;
+
+  &:hover,
+  &:active {
+    text-decoration: none;
+    background-color: $blue;
+    color: $nearWhite;
+  }
+}
+
+.sub-heading {
+  margin: -4px 0 16px 0;
+  line-height: 1.125;
+  font-family: $ffSerif;
+  font-style: italic;
+  color: $darkGrey;
+
+  @media (min-width: $desktop) {
+    margin: -4px 0 24px 0;
+  }
+}
+
+.cta {
+  font-family: $ffSerif;
+  font-style: italic;
+
+  &::after {
+    content: "➚";
+    color: $blue;
+  }
+}
+
+.widescreen-iframe {
+  width: $phoneContentCol;
+  height: 192px; // 16:9 of width
+
+  @media (min-width: $tablet) {
+    width: 640px;
+    height: 360px; // 16:9 of width
+  }
+}
+
+.bordered-iframe {
+  border: 1px solid $darkGrey !important;
+}
+
+.caption-container {
+	display: inline-block;
+	margin: 0;
+	padding: 0;
+
+	-webkit-box-sizing: border-box !important;
+	-moz-box-sizing: border-box !important;
+	-ms-box-sizing: border-box !important;
+  box-sizing: border-box !important;
+
+  &.full-width {
+    width: 100% !important;
+  }
+
+  &.half-left {
+    width: 100% !important;
+
+    @media (min-width: $tablet) {
+      width: 50% !important;
+    }
+  }
+
+  &.half-right {
+    width: 100% !important;
+    float: right !important;
+
+    @media (min-width: $tablet) {
+      width: 50% !important;
+    }
+  }
+
+  .captioned-text {
+    text-align: center;
+    font-family: $ffSerif;
+    font-style: italic;
+    color: $darkGrey;
+  }
+}
+
+.quote-author {
+  text-align: right;
+  margin: 16px;
+
+  @media (min-width: $tablet) {
+    margin: 16px 24px;
+  }
+}
+
+.article-end {
+  display: block;
+  margin: 48px 0;
+
+  hr {
+    width: 66%;
+    margin: 0 auto;
+    border-top: 1px solid $paleGrey;
+  }
+}
+
+.mobile-only-visible {
+  display: block !important;
+
+  @media (min-width: $tablet) {
+    display: none !important;
+  }
+}
+
+.mobile-hidden {
+  display: none !important;
+
+  @media (min-width: $tablet) {
+    display: block !important;
+  }
+}
+
+
+//===========/----------------------------------------------
+//  [_EXT]  /  Extensions
+//=========/------------------------------------------------
+
+@import "print.scss";

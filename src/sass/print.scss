@@ -1,0 +1,24 @@
+@import "common/variables.scss";
+
+
+@media print {
+  body {
+    margin: 24mm 20mm !important;
+  }
+
+  header, footer {
+    display: none !important;
+  }
+
+  a {
+    color: $blue !important;
+  }
+
+  a[href]:after {
+    content: none !important;
+  }
+
+  blockquote {
+    border: none !important;
+  }
+}
