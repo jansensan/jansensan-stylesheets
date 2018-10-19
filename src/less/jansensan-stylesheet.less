@@ -496,6 +496,33 @@ ol, ul {
   }
 }
 
+.twitter-wrapper {
+  display: block;
+  width: 100% !important;
+  margin: 24px auto;
+
+  @media (min-width: @tablet) {
+    margin: 32px auto;
+    width: 480px !important;
+    max-width: 480px !important;
+  }
+}
+
+.twitter-tweet,
+.twitter-tweet-rendered {
+  width: @smallContentCol !important;
+  max-width: @smallContentCol !important;
+
+  @media (min-width: @phone) {
+    width: @phoneContentCol !important;
+    max-width: @phoneContentCol !important;
+  }
+  @media (min-width: @tablet) {
+    width: 480px !important;
+    max-width: 480px !important;
+  }
+}
+
 
 //===========/----------------------------------------------
 //  [_EXT]  /  Extensions
