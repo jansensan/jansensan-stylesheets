@@ -455,13 +455,13 @@ ol, ul {
       width: 50% !important;
     }
   }
+}
 
-  .captioned-text {
-    text-align: center;
-    font-family: $ffSerif;
-    font-style: italic;
-    color: $darkGrey;
-  }
+.captioned-text {
+  text-align: center;
+  font-family: $ffSerif;
+  font-style: italic;
+  color: $darkGrey;
 }
 
 .quote-author {
