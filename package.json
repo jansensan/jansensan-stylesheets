@@ -4,7 +4,7 @@
   "author": "Mat Janson Blanchet <mat.jb@jansensan.net> (https://jansensan.net)",
   "version": "0.7.1",
   "license": "MIT",
-  "main": "less/jansensan-stylesheet.js",
+  "main": "src/sass/jansensan-stylesheet.scss",
   "repository": {
     "type": "git",
     "url": "git+https://jansensan@github.com/jansensan/jansensan-stylesheets.git"
