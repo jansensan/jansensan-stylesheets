@@ -453,7 +453,7 @@ select {
   font-style: italic;
 
   &::after {
-    content: "➚";
+    content: " ➚";
     color: $blue;
   }
 }
