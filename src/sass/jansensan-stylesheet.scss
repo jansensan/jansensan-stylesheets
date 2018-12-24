@@ -114,6 +114,7 @@ textarea {
 
   -webkit-appearance: none;
   -webkit-border-radius: 0;
+  border-radius: 0;
 }
 
 header {
@@ -404,9 +405,11 @@ select {
 .btn-primary {
   display: inline-block;
 
-  padding: 6px 24px;
-  border: 0;
   background-color: $nearBlack;
+  border: 0;
+  border-radius: 0;
+  -webkit-border-radius: 0;
+  padding: 6px 24px;
 
   font-family: $ffSansSerif;
   font-size: 12pt;
