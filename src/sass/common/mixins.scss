@@ -2,12 +2,12 @@
   font-family: $ffSerif;
   font-style: italic;
   font-size: 11pt;
-  letter-spacing: -0.5pt;
+  letter-spacing: -0.25pt;
   color: $paleGrey;
   
   @media (min-width: $phone) {
     font-size: 12.5pt;
-    letter-spacing: -0.25pt;
+    letter-spacing: -0.125pt;
   }
   @media (min-width: $tablet) {
     font-size: 13pt;
