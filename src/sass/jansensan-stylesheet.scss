@@ -333,6 +333,38 @@ ol, ul {
   padding: 0 0 0 20px;
 }
 
+select {
+  -webkit-appearance: none; 
+  -moz-appearance: none;
+  appearance: none;
+
+  padding: 8px 48px 8px 16px;
+  border: 1px solid $nearBlack;
+
+  background-color: $nearWhite;
+  background-image:
+    linear-gradient(45deg, transparent 50%, $darkerGrey 50%),
+    linear-gradient(135deg, $darkerGrey 50%, transparent 50%),
+    linear-gradient(to right, $darkGrey, $darkGrey);
+  background-position:
+    calc(100% - 19px) calc(1em + 2px),
+    calc(100% - 14px) calc(1em + 2px),
+    calc(100% - 2.5em) 0.5em;
+  background-size:
+    5px 5px,
+    5px 5px,
+    1px 1.5em;
+  background-repeat: no-repeat;
+
+  font-family: $ffSansSerif;
+  font-size: 11pt;
+  color: $darkerGrey;
+
+  &::-ms-expand { 
+    display: none; /* hide the default arrow in ie10 and ie11 */
+  }
+}
+
 :focus {
   @include focusOnLight;
 }
