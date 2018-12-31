@@ -504,19 +504,32 @@ select {
   }
 }
 
-.captioned-text {
+.captioned-text,
+.figure-caption,
+.photo-credit {
+  @include captionStyle;
   text-align: center;
-  font-family: $ffSerif;
-  font-style: italic;
-  color: $darkGrey;
 }
 
 .quote-author {
+  @include captionStyle;
   text-align: right;
   margin: 16px;
 
   @media (min-width: $tablet) {
     margin: 16px 24px;
+  }
+}
+
+.photo-credit {
+  &::before {
+    content: "© ";
+  }
+}
+
+.quote-author {
+  &::before {
+    content: "– ";
   }
 }
 

@@ -1,3 +1,9 @@
+@mixin captionStyle {
+  font-family: $ffSerif;
+  font-style: italic;
+  color: $darkGrey;
+}
+
 @mixin descriptionStyle {
   font-family: $ffSerif;
   font-style: italic;
