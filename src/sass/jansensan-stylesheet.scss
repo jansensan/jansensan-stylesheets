@@ -437,14 +437,14 @@ select {
 }
 
 .sub-heading {
-  margin: -4px 0 16px 0;
+  margin: 2px 0 16px 0;
   line-height: 1.125;
   font-family: $ffSerif;
   font-style: italic;
   color: $darkGrey;
 
   @media (min-width: $desktop) {
-    margin: -4px 0 24px 0;
+    margin: 2px 0 24px 0;
   }
 }
 
