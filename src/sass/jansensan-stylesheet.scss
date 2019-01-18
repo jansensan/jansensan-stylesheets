@@ -64,14 +64,12 @@ p {
 
 pre, code {
   font-family: $ffMonospace !important;
-  font-weight: $fwMedium !important;
 }
 
 pre ol,
 pre li,
 pre li div {
   font-family: $ffMonospace !important;
-  font-weight: $fwMedium !important;
   font-size: 10.5pt;
   line-height: 1.25;
   letter-spacing: -0.5pt;
@@ -103,7 +101,6 @@ blockquote {
   background-color: $nearWhite;
 
   font-family: $ffSerif;
-  font-style: italic;
   color: $darkerGrey;
 
   p {
@@ -333,7 +330,6 @@ footer {
     margin: 0.45em 0;
     list-style: none;
     font-family: $ffSerif;
-    font-style: italic;
     line-height: 1.125;
 
     a {
@@ -440,7 +436,6 @@ select {
   margin: 2px 0 16px 0;
   line-height: 1.125;
   font-family: $ffSerif;
-  font-style: italic;
   color: $darkGrey;
 
   @media (min-width: $desktop) {
@@ -450,7 +445,6 @@ select {
 
 .cta {
   font-family: $ffSerif;
-  font-style: italic;
 
   &::after {
     content: " ➚";
