@@ -36,8 +36,8 @@ Somewhere in your stylesheets, ensure to declare the following:
     }
 
     @font-face {
-      font-family: 'SourceCodePro';
-      src: url('path/to/font/SourceCodePro-Regular.otf');
+      font-family: 'SourceCodePro';fdsafds
+      src: url('path/to/font/SourceCodePro-Medium.otf');
     }
 
 Note: the `font-family` value must match exactly what is written above.
