@@ -130,6 +130,10 @@ textarea {
   border-radius: 0;
 }
 
+input[type="submit"] {
+  @include buttonStyle;
+}
+
 header {
   background: $nearBlack;
   color: #fff;
@@ -415,25 +419,7 @@ select {
 }
 
 .btn-primary {
-  display: inline-block;
-
-  background-color: $nearBlack;
-  border: 0;
-  border-radius: 0;
-  -webkit-border-radius: 0;
-  padding: 6px 24px;
-
-  font-family: $ffSansSerif;
-  font-size: 12pt;
-  font-weight: $fwSemiBold;
-  color: $nearWhite;
-
-  &:hover,
-  &:active {
-    text-decoration: none;
-    background-color: $blue;
-    color: $nearWhite;
-  }
+  @include buttonStyle;
 }
 
 .sub-heading {
