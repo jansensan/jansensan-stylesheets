@@ -88,6 +88,10 @@ a {
   &:hover {
     text-decoration: underline;
   }
+
+  &.btn-primary {
+    color: $nearWhite !important;
+  }
 }
 
 article {
