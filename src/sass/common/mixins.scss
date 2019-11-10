@@ -30,7 +30,7 @@
   font-size: 11pt;
   letter-spacing: -0.25pt;
   color: $paleGrey;
-  
+
   @media (min-width: $phone) {
     font-size: 12.5pt;
     letter-spacing: -0.125pt;
@@ -41,14 +41,14 @@
   }
 }
 
-@mixin focusOnLight {
-  border-color: $transparentBlue;
-  box-shadow: 0 0 0 4px $transparentBlue;
+@mixin focusOnLight($color: $blue) {
+  border-color: rgba($color, 0.666);
+  box-shadow: 0 0 0 4px rgba($color, 0.666);
   outline: 0 !important;
 }
 
-@mixin focusOnDark {
-  border-color: $transparentLightBlue;
-  box-shadow: 0 0 0 4px $transparentLightBlue;
+@mixin focusOnDark($color: $lightBlue) {
+  border-color: rgba($color, 0.666);
+  box-shadow: 0 0 0 4px rgba($color, 0.666);
   outline: 0 !important;
 }

@@ -41,14 +41,14 @@
   }
 }
 
-.focusOnLight() {
-  border-color: @transparentBlue;
-  box-shadow: 0 0 0 4px @transparentBlue;
+.focusOnLight(@color: @blue) {
+  border-color: rgba(@color, 0.666);
+  box-shadow: 0 0 0 4px rgba(@color, 0.666);
   outline: 0 !important;
 }
 
-.focusOnDark() {
-  border-color: @transparentLightBlue;
-  box-shadow: 0 0 0 4px @transparentLightBlue;
+.focusOnDark(@color: @lightBlue) {
+  border-color: rgba(@color, 0.666);
+  box-shadow: 0 0 0 4px rgba(@color, 0.666);
   outline: 0 !important;
 }
