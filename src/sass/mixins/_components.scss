@@ -1,0 +1,51 @@
+@import '../common//breakpoints';
+@import '../common/colors';
+@import '../common/typography';
+@import './ui';
+
+
+@mixin button {
+  -webkit-border-radius: 0;
+  background-color: $nearBlack;
+  border-radius: 0;
+  border: 0;
+  color: $nearWhite;
+  cursor: pointer;
+  display: inline-block;
+  font-family: $ffSansSerif;
+  font-size: 12pt;
+  font-weight: $fwSemiBold;
+  padding: 8px 24px;
+
+  &:hover,
+  &:active {
+    background-color: $blue;
+    color: $nearWhite;
+    text-decoration: none;
+  }
+
+  &:focus {
+    @include focusOnLight();
+  }
+}
+
+@mixin caption {
+  color: $darkGrey;
+  font-family: $ffSerif;
+}
+
+@mixin description {
+  color: $paleGrey;
+  font-family: $ffSerif;
+  font-size: 11pt;
+  letter-spacing: -0.25pt;
+
+  @media #{$mqPhone} {
+    font-size: 12.5pt;
+    letter-spacing: -0.125pt;
+  }
+  @media #{$mqTablet} {
+    font-size: 13pt;
+    letter-spacing: 0pt;
+  }
+}

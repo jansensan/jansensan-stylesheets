@@ -1,0 +1,31 @@
+@import '../common/breakpoints';
+
+
+// content blocks
+@mixin centeredContent {
+  position: relative;
+  margin: 0 auto;
+  width: $phoneContentCol;
+
+  @media #{$mqTablet} {
+    width: $tabletContentCol;
+  }
+  @media #{$mqDesktop} {
+    width: $desktopContentCol;
+  }
+  @media #{$mqLargeDesktop} {
+    width: $largeContentCol;
+  }
+}
+
+@mixin leftColumnContent {
+  // TODO: get rid of float
+  float: left;
+  padding-bottom: 16px;
+  width: 100%;
+
+  @media #{$mqTablet} {
+    padding-bottom: 32px;
+    width: $tabletContentCol;
+  }
+}

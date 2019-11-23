@@ -1,0 +1,235 @@
+@import '../common/typography';
+@import '../common/breakpoints';
+@import '../common/colors';
+
+
+// headings
+@mixin headingBase {
+  margin: 0.125em 0;
+  overflow-wrap: break-word;
+  line-height: 1;
+  font-family: $ffHeading;
+  font-weight: $fwExtraBold;
+
+  @media #{$mqTablet} {
+    margin: 0.5em 0;
+  }
+}
+@mixin heading1 {
+  @include headingBase();
+  letter-spacing: -0.9pt;
+  font-size: 2.5em;
+}
+@mixin heading2 {
+  @include headingBase();
+  font-size: 1.9em;
+}
+@mixin heading3 {
+  @include headingBase();
+}
+@mixin heading4 {
+  @include headingBase();
+}
+@mixin heading5 {
+  @include headingBase();
+}
+@mixin heading6 {
+  @include headingBase();
+}
+@mixin subheading {
+  font-family: $ffSerif;
+  line-height: 1.125;
+  margin: 2px 0 16px 0;
+
+  @media #{$mqDesktop} {
+    margin: 2px 0 24px 0;
+  }
+}
+
+// text blocks
+@mixin paragraph {
+  font-family: $ffSansSerif;
+  font-size: $mainFontSize;
+  font-weight: $fwRegular;
+  hyphens: auto;
+  line-height: 1.5;
+  margin: 0.75em 0;
+  text-align: justify;
+  text-align: left;
+  word-break: normal;
+}
+
+@mixin list {
+  @include paragraph();
+}
+
+@mixin unorderedListItem {
+  margin-bottom: 0.75em;
+
+  &:last-of-type {
+    margin-bottom: 0;
+  }
+
+  &:before {
+    margin-right: 10px;
+    content: "\2014";
+  }
+}
+
+// interactive elements
+@mixin button {
+  // should be applicable to both <button> and <a>
+  // and provide the exact same visual behaviour
+
+  display: inline-block;
+  background-color: transparent;
+  border: 0;
+  cursor: pointer;
+  font-family: $ffButtonLabel;
+  font-weight: $fwRegular;
+  line-height: 22px;
+  padding-left: 0;
+  text-align: left;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: none;
+  }
+  &:active {
+    text-decoration: none;
+  }
+  &:focus {
+    @include focusOnLight();
+  }
+  &:disabled,
+  &[disabled] {
+    cursor: not-allowed;
+  }
+}
+
+@mixin anchor {
+  @include paragraph();
+  cursor: pointer;
+  text-decoration: underline;
+
+  &:hover {
+    text-decoration: none;
+  }
+  &:active {
+    text-decoration: none;
+  }
+  &:focus {
+    @include focusOnLight();
+  }
+}
+
+@mixin select {
+  @include paragraph();
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  -webkit-border-radius: 0;
+  background-color: $nearWhite;
+  background-image:
+    linear-gradient(45deg, transparent 50%, $darkerGrey 50%),
+    linear-gradient(135deg, $darkerGrey 50%, transparent 50%),
+    linear-gradient(to right, $darkGrey, $darkGrey);
+  background-position:
+    calc(100% - 19px) calc(1em + 2px),
+    calc(100% - 14px) calc(1em + 2px),
+    calc(100% - 2.5em) 0.5em;
+  background-size:
+    5px 5px,
+    5px 5px,
+    1px 1.5em;
+  background-repeat: no-repeat;
+  border: 1px solid $nearBlack;
+  padding: 8px 48px 8px 16px;
+
+  &:focus {
+    @include focusOnLight();
+  }
+
+  // fix for firefox removes dotted outline on selection option
+  &:-moz-focusring {
+    color: transparent;
+    text-shadow: 0 0 0 $black;
+  }
+}
+
+// forms
+@mixin fieldset {
+  font-family: $ffSansSerif;
+  font-weight: $fwRegular;
+}
+@mixin fieldsetLegend {
+  font-size: 0;
+  height: 0;
+  visibility: hidden;
+  width: 0;
+}
+@mixin textInput {
+  -webkit-appearance: none;
+  background-color: transparent;
+  border-bottom: 1px solid $blackRoast;
+  border-left: none;
+  border-radius: 0;
+  border-right: none;
+  border-top: none;
+  color: $blackRoast;
+  font-family: $ffSansSerif;
+  font-size: 16px;
+  font-weight: $fwRegular;
+  line-height: 28px;
+  padding-left: 0;
+  padding-right: 0;
+
+  &:focus {
+    @include focusOnLight();
+  }
+
+  &::placeholder {
+    color: $halfGrey;
+  }
+}
+@mixin inputLabel {
+  display: block;
+  color: $blackRoast;
+  font-family: $ffSansSerif;
+  font-size: 12px;
+  font-weight: $fwRegular;
+  text-transform: capitalize;
+
+  @media #{$mqDesktop} {
+    font-size: 10px;
+    font-family: $ffSansSerifBold;
+    text-transform: uppercase;
+  }
+}
+@mixin radioButton {
+  font-family: $ffSansSerif;
+  font-weight: $fwRegular;
+}
+@mixin checkboxButton {
+  font-family: $ffSansSerif;
+  font-weight: $fwRegular;
+}
+
+// a11y
+@mixin focusOutline($color: $blue) {
+  border-color: $color !important;
+  box-shadow: 0 0 0 4px $color !important;
+  outline: 0 !important;
+  transition: box-shadow 0.2s linear !important;
+
+  &::-moz-focus-inner {
+    border: 0;
+  }
+}
+
+@mixin focusOnLight {
+  @include focusOutline($transparentBlue);
+}
+
+@mixin focusOnDark {
+  @include focusOutline($transparentLightBlue);
+}
