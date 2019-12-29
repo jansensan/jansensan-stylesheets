@@ -64,14 +64,17 @@
 }
 
 @mixin unorderedListItem {
+  position: relative;
   margin-bottom: 0.75em;
+  left: 24px;
 
   &:last-of-type {
     margin-bottom: 0;
   }
 
   &:before {
-    margin-right: 10px;
+    position: absolute;
+    left: -24px;
     content: "\2014";
   }
 }
