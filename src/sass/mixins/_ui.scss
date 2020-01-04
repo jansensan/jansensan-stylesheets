@@ -63,18 +63,25 @@
 }
 
 @mixin unorderedListItem {
+  $leftMargin: 24px;
   position: relative;
-  margin-bottom: 0.75em;
-  left: 24px;
+  font-size: 12pt;
+  hyphens: none;
+  left: $leftMargin;
+  line-height: 1.25;
+  margin-bottom: 0.5em;
+  text-align: left;
+  width: calc(100% - #{$leftMargin});
+  word-break: unset;
 
   &:last-of-type {
     margin-bottom: 0;
   }
 
-  &:before {
+  &::before {
     position: absolute;
-    left: -24px;
     content: "\2014";
+    left: -#{$leftMargin};
   }
 }
 
