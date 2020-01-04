@@ -51,12 +51,11 @@
   font-family: $ffSansSerif;
   font-size: $mainFontSize;
   font-weight: $fwRegular;
-  hyphens: auto;
+  hyphens: none;
   line-height: 1.5;
-  margin: 0.75em 0;
+  margin: 8px 0;
   text-align: justify;
-  text-align: left;
-  word-break: normal;
+  word-break: unset;
 }
 
 @mixin list {
