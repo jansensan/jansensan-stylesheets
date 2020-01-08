@@ -22,10 +22,11 @@
 }
 @mixin heading2 {
   @include headingBase();
-  font-size: 1.9em;
+  font-size: 1.8em;
 }
 @mixin heading3 {
   @include headingBase();
+  font-size: 1.25em;
 }
 @mixin heading4 {
   @include headingBase();
