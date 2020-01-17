@@ -152,7 +152,7 @@
     5px 5px,
     1px 1.5em;
   background-repeat: no-repeat;
-  border: 1px solid $nearBlack;
+  border: 1px solid $black;
   padding: 8px 48px 8px 16px;
 
   &:focus {
@@ -180,12 +180,12 @@
 @mixin textInput {
   -webkit-appearance: none;
   background-color: transparent;
-  border-bottom: 1px solid $blackRoast;
+  border-bottom: 1px solid $black;
   border-left: none;
   border-radius: 0;
   border-right: none;
   border-top: none;
-  color: $blackRoast;
+  color: $black;
   font-family: $ffSansSerif;
   font-size: 16px;
   font-weight: $fwRegular;
@@ -203,7 +203,7 @@
 }
 @mixin inputLabel {
   display: block;
-  color: $blackRoast;
+  color: $black;
   font-family: $ffSansSerif;
   font-size: 12px;
   font-weight: $fwRegular;
