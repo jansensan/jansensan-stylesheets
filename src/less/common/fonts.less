@@ -1,15 +1,21 @@
 // font families
-@ffHeading: Helvetica, Arial, sans-serif;
 @ffSansSerif: Helvetica, Arial, sans-serif;
 @ffSerif: 'PolyItalic';
-@ffMonospace: 'SourceCodePro';
+@ffMonospace: 'SourceCodePro', Courier, monospace;
+
+// TODO: deprecate
+@ffHeading: @ffSansSerif;
+@ffButtonLabel: @ffSansSerif;
 
 // font sizes
-@mainFontSize: 12.5pt;
+@fsSmol: 11pt;
+@fsTextBody: 12.5pt;
+@mainFontSize: @fsTextBody;
 
 // font weights
 @fwLight: 300;
-@fwNormal: 400;
+@fwRegular: 400;
+@fwNormal: @fwRegular; // TODO: deprecate
 @fwMedium: 500;
 @fwSemiBold: 600;
 @fwBold: 700;

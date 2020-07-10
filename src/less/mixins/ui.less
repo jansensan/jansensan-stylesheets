@@ -1,0 +1,236 @@
+@import '../common/fonts';
+@import '../common/breakpoints';
+@import '../common/colors';
+
+
+// headings
+.headingBase() {
+  margin: 0.125em 0;
+  overflow-wrap: break-word;
+  line-height: 1;
+  font-family: @ffHeading;
+  font-weight: @fwExtraBold;
+
+  @media (min-width: @tablet) {
+    margin: 0.5em 0;
+  }
+}
+.heading1() {
+  .headingBase();
+  letter-spacing: -0.9pt;
+  font-size: 2.5em;
+}
+.heading2() {
+  .headingBase();
+  font-size: 1.8em;
+}
+.heading3() {
+  .headingBase();
+  font-size: 1.25em;
+}
+.heading4() {
+  .headingBase();
+}
+.heading5() {
+  .headingBase();
+}
+.heading6() {
+  .headingBase();
+}
+.subheading() {
+  font-family: @ffSerif;
+  line-height: 1.125;
+  margin: 2px 0 16px 0;
+
+  @media (min-width: @desktop) {
+    margin: 2px 0 24px 0;
+  }
+}
+
+// text blocks
+.paragraph() {
+  font-family: @ffSansSerif;
+  font-size: @mainFontSize;
+  font-weight: @fwRegular;
+  hyphens: none;
+  line-height: 1.5;
+  margin: 8px 0;
+  text-align: justify;
+  word-break: unset;
+}
+
+.list() {
+  .paragraph();
+}
+
+.unorderedListItem() {
+  position: relative;
+  font-size: 12pt;
+  hyphens: none;
+  left: 24px;
+  line-height: 1.25;
+  margin-bottom: 0.5em;
+  text-align: left;
+  width: calc(100% - 24px);
+  word-break: unset;
+
+  &:last-of-type {
+    margin-bottom: 0;
+  }
+
+  &::before {
+    position: absolute;
+    content: "\2014";
+    left: -24px;
+  }
+}
+
+// interactive elements
+.button() {
+  // should be applicable to both <button> and <a>
+  // and provide the exact same visual behaviour
+
+  display: inline-block;
+  background-color: transparent;
+  border: 0;
+  cursor: pointer;
+  font-family: @ffButtonLabel;
+  font-weight: @fwRegular;
+  line-height: 22px;
+  padding-left: 0;
+  text-align: left;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: none;
+  }
+  &:active {
+    text-decoration: none;
+  }
+  &:focus {
+    .focusOnLight();
+  }
+  &:disabled,
+  &[disabled] {
+    cursor: not-allowed;
+  }
+}
+
+.anchor() {
+  .paragraph();
+  cursor: pointer;
+  text-decoration: underline;
+
+  &:hover {
+    text-decoration: none;
+  }
+  &:active {
+    text-decoration: none;
+  }
+  &:focus {
+    .focusOnLight();
+  }
+}
+
+.select() {
+  .paragraph();
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  -webkit-border-radius: 0;
+  background-color: @nearWhite;
+  background-image:
+    linear-gradient(45deg, transparent 50%, @darkerGrey 50%),
+    linear-gradient(135deg, @darkerGrey 50%, transparent 50%),
+    linear-gradient(to right, @darkGrey, @darkGrey);
+  background-position:
+    calc(100% - 19px) calc(1em + 2px),
+    calc(100% - 14px) calc(1em + 2px),
+    calc(100% - 2.5em) 0.5em;
+  background-size:
+    5px 5px,
+    5px 5px,
+    1px 1.5em;
+  background-repeat: no-repeat;
+  border: 1px solid @black;
+  padding: 8px 48px 8px 16px;
+
+  &:focus {
+    .focusOnLight();
+  }
+
+  // fix for firefox removes dotted outline on selection option
+  &:-moz-focusring {
+    color: transparent;
+    text-shadow: 0 0 0 @black;
+  }
+}
+
+// forms
+.fieldset() {
+  font-family: @ffSansSerif;
+  font-weight: @fwRegular;
+}
+.fieldsetLegend() {
+  font-size: 0;
+  height: 0;
+  visibility: hidden;
+  width: 0;
+}
+.textInput() {
+  -webkit-appearance: none;
+  background-color: rgba(@nearWhite, 0.5);
+  border-radius: 0;
+  border: 1px solid @paleGrey;
+  color: @black;
+  font-family: @ffSansSerif;
+  font-size: 16px;
+  font-weight: @fwRegular;
+  line-height: 24px;
+  padding-left: 4px;
+  padding-right: 4px;
+
+  &:focus {
+    .focusOnLight();
+  }
+
+  &::placeholder {
+    color: @darkGrey;
+  }
+}
+.inputLabel() {
+  display: block;
+  color: @darkerGrey;
+  font-family: @ffSerif;
+  font-size: 11pt;
+  font-weight: @fwRegular;
+  margin-top: 0.75em;
+  text-transform: capitalize;
+}
+.radioButton() {
+  font-family: @ffSansSerif;
+  font-weight: @fwRegular;
+}
+.checkboxButton() {
+  font-family: @ffSansSerif;
+  font-weight: @fwRegular;
+}
+
+// a11y
+.focusOutline(@color: @blue) {
+  border-color: @color !important;
+  box-shadow: 0 0 0 4px @color !important;
+  outline: 0 !important;
+  transition: box-shadow 0.2s linear !important;
+
+  &::-moz-focus-inner {
+    border: 0;
+  }
+}
+
+.focusOnLight() {
+  .focusOutline(@transparentBlue);
+}
+
+.focusOnDark() {
+  .focusOutline(@transparentLightBlue);
+}
