@@ -15,28 +15,35 @@
     margin: 0.5em 0;
   }
 }
+
 @mixin heading1 {
   @include headingBase();
   letter-spacing: -0.9pt;
   font-size: 2.5em;
 }
+
 @mixin heading2 {
   @include headingBase();
   font-size: 1.8em;
 }
+
 @mixin heading3 {
   @include headingBase();
   font-size: 1.25em;
 }
+
 @mixin heading4 {
   @include headingBase();
 }
+
 @mixin heading5 {
   @include headingBase();
 }
+
 @mixin heading6 {
   @include headingBase();
 }
+
 @mixin subheading {
   font-family: $ffSerif;
   line-height: 1.125;
@@ -121,6 +128,7 @@
   @include paragraph();
   cursor: pointer;
   text-decoration: underline;
+  text-decoration-thickness: 1pt;
 
   &:hover {
     text-decoration: none;
@@ -171,12 +179,14 @@
   font-family: $ffSansSerif;
   font-weight: $fwRegular;
 }
+
 @mixin fieldsetLegend {
   font-size: 0;
   height: 0;
   visibility: hidden;
   width: 0;
 }
+
 @mixin textInput {
   -webkit-appearance: none;
   background-color: rgba($nearWhite, 0.5);
@@ -198,6 +208,7 @@
     color: $darkGrey;
   }
 }
+
 @mixin inputLabel {
   display: block;
   color: $darkerGrey;
@@ -207,10 +218,12 @@
   margin-top: 0.75em;
   text-transform: capitalize;
 }
+
 @mixin radioButton {
   font-family: $ffSansSerif;
   font-weight: $fwRegular;
 }
+
 @mixin checkboxButton {
   font-family: $ffSansSerif;
   font-weight: $fwRegular;
