@@ -1,3 +1,13 @@
+@mixin anchorStyle {
+  text-decoration: underline;
+  text-decoration-thickness: 1pt;
+
+  &:hover,
+  &:active {
+    text-decoration: none;
+  }
+}
+
 @mixin buttonStyle {
   display: inline-block;
 
