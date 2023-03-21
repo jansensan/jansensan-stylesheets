@@ -351,7 +351,7 @@ ol, ul {
 }
 
 select {
-  -webkit-appearance: none; 
+  -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
 
@@ -377,7 +377,7 @@ select {
   font-size: 11pt;
   color: $darkerGrey;
 
-  &::-ms-expand { 
+  &::-ms-expand {
     display: none; /* hide the default arrow in ie10 and ie11 */
   }
 }
@@ -522,9 +522,10 @@ select {
   margin: 48px 0;
 
   hr {
-    width: 66%;
-    margin: 0 auto;
     border-top: 1px solid $paleGrey;
+    margin: 0 auto;
+    padding: 0;
+    width: 66%;
   }
 }
 
