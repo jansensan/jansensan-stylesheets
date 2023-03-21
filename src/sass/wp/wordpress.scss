@@ -1,0 +1,120 @@
+// wordpress overrides
+.wp-video-shortcode,
+.wp-video {
+  width: $phoneContentCol !important;
+  height: 192px !important; // 16:9 of width
+
+  @media #{$mqTablet} {
+    width: 640px !important;
+    height: 360px !important; // 16:9 of width
+  }
+}
+
+
+// custom classes
+.sidebar {
+  display: none;
+  float: left;
+  padding-top: 14px;
+  padding-bottom: 32px;
+
+  @media #{$mqDesktop} {
+    display: block;
+    width: 272px;
+    margin-left: 32px;
+  }
+  @media #{$mqLargeDesktop} {
+    width: 376px;
+  }
+
+  h3 {
+    font-size: 1.8em;
+  }
+
+  section {
+    padding-bottom: 8px;
+  }
+}
+
+.sidebar-list {
+  display: inline-block;
+  padding: 0;
+  list-style: none;
+
+  li {
+    @include unorderedListItem();
+    font-size: $fsSmol;
+    width: 100%;
+  }
+
+  &.two-col-list {
+    li {
+      float: left;
+      width: 46%;
+    }
+  }
+}
+
+.blog-post-list {
+  margin-top: 48px;
+  list-style: none;
+
+  ul {
+    display: inline-block;
+    padding-left: 0px;
+
+    li {
+      list-style-type: none;
+
+      @media #{$mqDesktop} {
+        float: left;
+        width: 50%;
+      }
+
+      .sub-heading {
+        margin-bottom: 16px;
+      }
+    }
+  }
+
+  a {
+    display: inline-block;
+    color: $nearBlack;
+    text-decoration: none;
+
+    .blog-title {
+      font-weight: bold;
+    }
+
+    &:hover {
+      .blog-title {
+        text-decoration: underline;
+      }
+      .sub-heading {
+        text-decoration: none;
+      }
+    }
+  }
+}
+
+.tweets {
+  display: none;
+
+  @media #{$mqDesktop} {
+    display: block;
+    width: 272px;
+  }
+  @media #{$mqLargeDesktop} {
+    width: 376px;
+  }
+
+  h2 {
+    margin: 23px 0 0.5em 0;
+  }
+}
+
+.category-link {
+  display: block;
+  line-height: 1;
+  font-family: $ffSerif;
+}
