@@ -452,6 +452,16 @@ select {
   }
 }
 
+.standard-iframe {
+  width: $phoneContentCol;
+  height: 256px; // 4:3 of width
+
+  @media (min-width: $tablet) {
+    width: 640px;
+    height: 480px; // 4:3 of width
+  }
+}
+
 .bordered-iframe {
   border: 1px solid $darkGrey !important;
 }
