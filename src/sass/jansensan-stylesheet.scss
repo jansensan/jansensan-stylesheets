@@ -83,7 +83,7 @@ pre {
 
 a {
   text-decoration: none;
-  color: $blue;
+  color: $darkerBlue;
 
   &:hover {
     text-decoration: underline;
@@ -219,11 +219,11 @@ header {
 
       &:hover {
         text-decoration: none;
-        color: $blue;
+        color: $darkerBlue;
       }
 
       &.selected {
-        color: $blue;
+        color: $darkerBlue;
       }
     }
   }
