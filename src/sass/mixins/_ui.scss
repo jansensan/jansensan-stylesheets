@@ -131,11 +131,12 @@
   background-color: transparent;
   border: 0;
   cursor: pointer;
+  padding-left: 0;
+
   font-family: $ffButtonLabel;
   font-weight: $fwRegular;
   line-height: 22px;
-  padding-left: 0;
-  text-align: left;
+  text-align: center;
   text-decoration: none;
 
   &:hover {
