@@ -267,7 +267,7 @@
 }
 
 // a11y
-@mixin focusOutline($color: $darkerBlue) {
+@mixin focusOutline($color: $blue) {
   border-color: $color !important;
   box-shadow: 0 0 0 4px $color !important;
   outline: 0 !important;
@@ -279,9 +279,9 @@
 }
 
 @mixin focusOnLight {
-  @include focusOutline($transparentBlue);
+  @include focusOutline($blue);
 }
 
 @mixin focusOnDark {
-  @include focusOutline($transparentLightBlue);
+  @include focusOutline($lightBlue);
 }
