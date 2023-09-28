@@ -141,10 +141,6 @@ header {
   overflow: hidden;
   margin-bottom: 32px;
 
-  :focus {
-    @include focusOnDark;
-  }
-
   .header-title {
     width: 100%;
     float: left;
@@ -240,10 +236,6 @@ footer {
   background: $nearBlack;
   color: #fff;
   overflow: hidden;
-
-  :focus {
-    @include focusOnDark;
-  }
 
   .site-meta {
     overflow: hidden;
@@ -380,10 +372,6 @@ select {
   &::-ms-expand {
     display: none; /* hide the default arrow in ie10 and ie11 */
   }
-}
-
-:focus {
-  @include focusOnLight;
 }
 
 
