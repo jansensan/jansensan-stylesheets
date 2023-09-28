@@ -137,14 +137,14 @@ input[type="submit"] {
 header {
   background: $nearBlack;
   color: #fff;
-  padding: 16px 0 8px 0;
-  overflow: hidden;
   margin-bottom: 32px;
+  overflow: hidden;
+  padding: 16px 0 8px 0;
 
   .header-title {
-    width: 100%;
     float: left;
     padding: 8px 0 16px;
+    width: 100%;
 
     @media (min-width: $desktop) {
       width: 50%;
@@ -153,8 +153,8 @@ header {
 
   .title {
     font-family: $ffHeading;
-    font-weight: $fwExtraBold;
     font-size: 22pt;
+    font-weight: $fwExtraBold;
     line-height: 1;
 
     @media (min-width: $tablet) {

@@ -193,13 +193,14 @@
   background-color: white;
   border-radius: 0;
   border: 1px solid $middleGrey;
+  padding-left: 4px;
+  padding-right: 4px;
+
   color: $black;
   font-family: $ffSansSerif;
   font-size: 16px;
   font-weight: $fwRegular;
   line-height: 24px;
-  padding-left: 4px;
-  padding-right: 4px;
 
   &:focus-visible {
     @include focusOnLight();
@@ -212,11 +213,12 @@
 
 @mixin inputLabel {
   display: block;
+  margin-top: 0.75em;
+
   color: $darkerGrey;
   font-family: $ffSerif;
   font-size: 11pt;
   font-weight: $fwRegular;
-  margin-top: 0.75em;
   text-transform: capitalize;
 }
 
