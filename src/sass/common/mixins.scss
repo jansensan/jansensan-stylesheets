@@ -42,13 +42,13 @@
 }
 
 @mixin focusOnLight($color: $blue) {
-  border-color: rgba($color, 0.666);
-  box-shadow: 0 0 0 4px rgba($color, 0.666);
+  border-color: $color;
+  box-shadow: 0 0 0 4px $color;
   outline: 0 !important;
 }
 
 @mixin focusOnDark($color: $lightBlue) {
-  border-color: rgba($color, 0.666);
-  box-shadow: 0 0 0 4px rgba($color, 0.666);
+  border-color: $lightBlue;
+  box-shadow: 0 0 0 4px $lightBlue;
   outline: 0 !important;
 }
