@@ -57,13 +57,15 @@
 
 // text blocks
 @mixin paragraph {
+  margin-top: 0;
+  margin-bottom: 16px;
+
   font-family: $ffSansSerif;
   font-size: $mainFontSize;
   font-weight: $fwRegular;
   hyphens: none;
   line-height: 1.5;
-  margin: 8px 0;
-  text-align: justify;
+  text-align: left;
   word-break: unset;
 }
 
