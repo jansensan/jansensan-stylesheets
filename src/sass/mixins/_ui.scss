@@ -260,6 +260,12 @@
   font-weight: $fwRegular;
 }
 
+// image
+@mixin imageReset {
+  line-height: 0;
+  font-size: 0;
+}
+
 // a11y
 @mixin focusOutline($color: $darkerBlue) {
   border-color: $color !important;
