@@ -269,7 +269,7 @@
 // a11y
 @mixin focusOutline($color: $blue) {
   border-color: $color !important;
-  box-shadow: 0 0 0 4px $color !important;
+  box-shadow: 0 0 0 2pt $color !important;
   outline: 0 !important;
   transition: box-shadow 0.2s linear !important;
 
