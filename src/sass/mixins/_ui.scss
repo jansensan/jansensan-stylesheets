@@ -96,6 +96,32 @@
   }
 }
 
+@mixin blockquote {
+  @include paragraph();
+
+  background-color: rgba($dirtyWhite, 0.25);
+  border-left: 2px solid $mediumBlue;
+  margin-bottom: 32px;
+  margin-top: 32px;
+  padding: 32px;
+
+  color: $darkerGrey;
+  font-family: $ffSerif;
+  font-size: 0.95em;
+  hyphens: none;
+
+  @media #{$mqDesktop} {
+    margin-top: 48px;
+    margin-bottom: 48px;
+  }
+
+  ol, ul, li, a, p, b, strong, i, cite {
+    font-family: inherit;
+    font-size: inherit;
+    hyphens: inherit;
+  }
+}
+
 // interactive elements
 @mixin button {
   // should be applicable to both <button> and <a>
