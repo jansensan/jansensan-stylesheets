@@ -6,6 +6,6 @@
   "license": "MIT",
   "main": "src/sass/jansensan-stylesheet.scss",
   "engines": {
-    "node": "18"
+    "node": "14"
   }
 }
