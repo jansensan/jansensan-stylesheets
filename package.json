@@ -5,12 +5,7 @@
   "version": "0.25.3",
   "license": "MIT",
   "main": "src/sass/jansensan-stylesheet.scss",
-  "repository": {
-    "type": "git",
-    "url": "git+https://jansensan@github.com/jansensan/jansensan-stylesheets.git"
-  },
-  "bugs": {
-    "url": "https://github.com/jansensan/jansensan-stylesheets/issues"
-  },
-  "homepage": "https://github.com/jansensan/jansensan-stylesheets#readme"
+  "engines": {
+    "node": "18"
+  }
 }
