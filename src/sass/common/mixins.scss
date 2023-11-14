@@ -40,15 +40,3 @@
     letter-spacing: 0pt;
   }
 }
-
-@mixin focusOnLight($color: $blue) {
-  border-color: $color;
-  box-shadow: 0 0 0 4px $color;
-  outline: 0 !important;
-}
-
-@mixin focusOnDark($color: $lightBlue) {
-  border-color: $lightBlue;
-  box-shadow: 0 0 0 4px $lightBlue;
-  outline: 0 !important;
-}
