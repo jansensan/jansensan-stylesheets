@@ -23,7 +23,7 @@
 //=========/------------------------------------------------
 
 body, html {
-  background: #fff;
+  background: white;
   font-family: $ffSansSerif;
   color: $nearBlack;
 }
@@ -138,7 +138,7 @@ input[type="submit"] {
 
 header {
   background: $nearBlack;
-  color: #fff;
+  color: white;
   margin-bottom: 32px;
   overflow: hidden;
   padding: 16px 0 8px 0;
@@ -164,7 +164,7 @@ header {
     }
 
     a {
-      color: #fff;
+      color: white;
 
       &:hover {
         text-decoration: none;
@@ -217,7 +217,7 @@ header {
     }
 
     a {
-      color: #fff;
+      color: white;
 
       &:hover {
         text-decoration: none;
@@ -236,7 +236,7 @@ footer {
   margin-top: 48px;
   padding: 32px 0 48px 0;
   background: $nearBlack;
-  color: #fff;
+  color: white;
   overflow: hidden;
 
   .site-meta {
@@ -335,7 +335,7 @@ footer {
     line-height: 1.125;
 
     a {
-      color: #fff;
+      color: white;
     }
   }
 }
