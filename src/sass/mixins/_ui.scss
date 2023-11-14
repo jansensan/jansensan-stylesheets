@@ -299,7 +299,7 @@
 }
 
 @mixin focusOnLight {
-  @include focusOutline($blue);
+  @include focusOutline($darkerBlue);
 }
 
 @mixin focusOnDark {
