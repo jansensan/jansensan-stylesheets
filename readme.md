@@ -36,7 +36,7 @@ Somewhere in your stylesheets, ensure to declare the following:
     }
 
     @font-face {
-      font-family: 'SourceCodePro';fdsafds
+      font-family: 'SourceCodePro';
       src: url('path/to/font/SourceCodePro-Medium.otf');
     }
 
