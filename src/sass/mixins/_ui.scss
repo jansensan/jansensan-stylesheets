@@ -146,7 +146,7 @@
     text-decoration: none;
   }
   &:focus-visible {
-    @include focusOnLight();
+    @include focusIndicator();
   }
   &:disabled,
   &[disabled] {
@@ -167,7 +167,7 @@
     text-decoration: none;
   }
   &:focus-visible {
-    @include focusOnLight();
+    @include focusIndicator();
   }
 }
 
@@ -194,7 +194,7 @@
   padding: 8px 48px 8px 16px;
 
   &:focus-visible {
-    @include focusOnLight();
+    @include focusIndicator();
   }
 
   // fix for firefox removes dotted outline on selection option
@@ -232,7 +232,7 @@
   line-height: 24px;
 
   &:focus-visible {
-    @include focusOnLight();
+    @include focusIndicator();
   }
 
   &::placeholder {
