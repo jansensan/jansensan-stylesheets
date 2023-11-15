@@ -243,7 +243,7 @@
 
 @mixin inputLabel {
   display: block;
-  margin-top: 0.75em;
+  margin: 16px 0 4px 0;
 
   color: $darkerGrey;
   font-family: $ffSerif;
