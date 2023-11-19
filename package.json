@@ -1,8 +1,8 @@
 {
   "name": "jansensan-stylesheets",
   "description": "Common stylesheets for the different websites hosted and managed by Mat Janson Blanchet.",
-  "version": "1.0.0",
   "author": "Mat Janson Blanchet <mat@jansonblanchet.com> (https://mat.jansonblanchet.com)",
+  "version": "1.0.1",
   "license": "MIT",
   "main": "src/sass/jansensan-stylesheet.scss",
   "engines": {
