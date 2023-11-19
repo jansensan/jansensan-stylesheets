@@ -2,3 +2,13 @@
 @import 'colors';
 @import 'fonts';
 @import 'typography';
+
+
+// gutter width
+$gutterWidth: 16px;
+
+// column width
+$phoneColWidth:         148px; // 4
+$tabletColWidth:        148px; // 4
+$desktopColWidth:       176px; // 5
+$largeDesktopColWidth:  196px; // 5
