@@ -1,0 +1,86 @@
+@import '../common/variables';
+
+@import '../mixins/mixins';
+@import '../mixins/ui';
+
+
+.footer {
+  display: inline-block;
+  position: relative;
+  background-color: $nearBlack;
+  margin-top: 96px;
+  padding: 64px 0;
+  width: 100%;
+
+  ul {
+    // override jansensan.css
+    margin: 24px 0;
+  }
+
+  @media #{$mqDesktop} {
+    .heading-container {
+      width: 50%;
+    }
+  }
+
+  .contact-cta-container {
+    margin-top: 16px;
+  }
+
+  .list-item {
+    @include unorderedListItem();
+    color: $nearWhite;
+  }
+
+  .contact-cta {
+    color: $nearWhite;
+    font-family: $ffSerif;
+    font-size: $fsMedium;
+    line-height: 1;
+    text-decoration: none;
+
+    &:focus-visible {
+      @include focusIndicator();
+    }
+
+    &:hover {
+      @include underlined();
+    }
+  }
+
+  .lang-switch-cta {
+    display: block;
+    margin-top: 64px;
+
+    color: $nearWhite;
+    font-family: $ffSerif;
+    font-size: $fsMedium;
+    line-height: 1;
+    text-decoration: none;
+
+    @media #{$mqTablet} {
+      position: absolute;
+      display: inline-block;
+      right: 0;
+      bottom: 0;
+      margin-top: unset;
+    }
+
+    &::before {
+      display: inline-block;
+      content: '⇅';
+      rotate: 90deg;
+      margin-right: 5px;
+    }
+
+    &:focus-visible {
+      @include focusIndicator();
+    }
+
+    &:hover {
+      @include underlined();
+    }
+  }
+
+  @include headingContainer();
+}

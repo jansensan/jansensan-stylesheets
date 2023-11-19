@@ -1,14 +1,17 @@
+// breakpoint triggers
 $phone: 375px;
 $tablet: 768px;
 $desktop: 960px;
 $largeDesktop: 1080px;
 
+// content width
 $smallContentCol: 288px;
 $phoneContentCol: 340px;
 $tabletContentCol: 640px;
 $desktopContentCol: 944px;
 $largeContentCol: 1048px;
 
+// media queries
 $mqPhone: 'only screen and (min-width: #{$phone})';
 $mqTablet: 'only screen and (min-width: #{$tablet})';
 $mqDesktop: 'only screen and (min-width: #{$desktop})';

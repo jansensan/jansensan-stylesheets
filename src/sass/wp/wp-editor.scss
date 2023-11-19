@@ -1,0 +1,8 @@
+@import '../mixins/ui';
+
+@import '../components/page-separator';
+
+
+.mce-content-body {
+  @include articleContent();
+}

@@ -1,51 +1,92 @@
-@import '../common/breakpoints';
-@import '../common/colors';
-@import '../common/typography';
-@import './ui';
+@import 'ui';
 
 
-@mixin button {
-  -webkit-border-radius: 0;
-  background-color: $nearBlack;
-  border-radius: 0;
-  border: 0;
+@mixin primaryButton {
+  @include button();
+
+  background-color: $darkerBlue;
+  border: 2px solid transparent;
+  padding: 12px 16px;
+
   color: $nearWhite;
-  cursor: pointer;
-  display: inline-block;
   font-family: $ffSansSerif;
-  font-size: 12pt;
-  font-weight: $fwSemiBold;
-  padding: 8px 24px;
+  font-size: $mainFontSize;
+  line-height: 1;
 
   &:hover,
   &:active {
-    background-color: $blue;
-    color: $nearWhite;
+    background-color: $nearWhite;
+    border: 2px solid $blue;
+    color: $darkerBlue;
+  }
+}
+
+@mixin anchorWithArrow {
+  @include anchor();
+
+  font-family: $ffSerif;
+  font-size: $fsMedium;
+  color: $darkerBlue;
+
+  &::after {
+    position: absolute;
+    margin-left: 8px;
+
+    content: " ➚";
+    color: $darkerBlue;
     text-decoration: none;
   }
 
-  &:focus-visible {
-    @include focusOnLight();
+  &:hover,
+  &:active {
+    color: $blue;
+
+    &::after {
+      color: $blue;
+    }
   }
 }
 
-@mixin caption {
-  color: $darkGrey;
-  font-family: $ffSerif;
-}
+@mixin checkbox {
+  .cb-container {
+    display: inline-block;
 
-@mixin description {
-  color: $paleGrey;
-  font-family: $ffSerif;
-  font-size: 11pt;
-  letter-spacing: -0.25pt;
-
-  @media #{$mqPhone} {
-    font-size: 12.5pt;
-    letter-spacing: -0.125pt;
+    &:focus-within {
+      @include focusIndicator();
+    }
   }
-  @media #{$mqTablet} {
-    font-size: 13pt;
-    letter-spacing: 0pt;
+
+  input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+
+    &:focus-visible {
+      @include noFocusIndicator();
+    }
+  }
+
+  input[type="checkbox"][disabled] {
+    cursor: not-allowed;
+  }
+
+  input[type="checkbox"] + label {
+    @include inputLabel();
+
+    display: inline-block;
+    cursor: pointer;
+    margin: 0;
+    padding-left: 4px;
+
+    color: $nearBlack;
+    font-size: $fsMedium;
+    font-weight: $fwRegular;
+    line-height: 1;
+    text-transform: none;
+  }
+
+  input[type="checkbox"][disabled] + label {
+    color: $paleGrey;
+    cursor: not-allowed;
   }
 }

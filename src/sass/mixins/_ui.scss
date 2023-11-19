@@ -1,15 +1,17 @@
-@import '../common/typography';
 @import '../common/breakpoints';
 @import '../common/colors';
+@import '../common/typography';
+@import '../mixins/mixins';
 
 
 // headings
 @mixin headingBase {
   margin: 0.125em 0;
-  overflow-wrap: break-word;
-  line-height: 1;
+
   font-family: $ffHeading;
   font-weight: $fwExtraBold;
+  line-height: 1.25;
+  overflow-wrap: break-word;
   text-align: left;
 
   @media #{$mqTablet} {
@@ -19,18 +21,18 @@
 
 @mixin heading1 {
   @include headingBase();
-  letter-spacing: -0.9pt;
-  font-size: 2.5em;
+  letter-spacing: -1px;
+  font-size: 40px;
 }
 
 @mixin heading2 {
   @include headingBase();
-  font-size: 1.8em;
+  font-size: 30px;
 }
 
 @mixin heading3 {
   @include headingBase();
-  font-size: 1.25em;
+  font-size: 20px;
 }
 
 @mixin heading4 {
@@ -55,6 +57,7 @@
   }
 }
 
+
 // text blocks
 @mixin paragraph {
   margin-top: 0;
@@ -64,6 +67,7 @@
   font-size: $mainFontSize;
   font-weight: $fwRegular;
   hyphens: none;
+  letter-spacing: .05pt;
   line-height: 1.5;
   text-align: left;
   word-break: unset;
@@ -75,14 +79,16 @@
 
 @mixin unorderedListItem {
   $leftMargin: 24px;
+
   position: relative;
-  font-size: 12pt;
-  hyphens: none;
   left: $leftMargin;
-  line-height: 1.25;
   margin-bottom: 0.5em;
-  text-align: left;
   width: calc(100% - #{$leftMargin});
+
+  font-size: $mainFontSize;
+  hyphens: none;
+  line-height: 1.25;
+  text-align: left;
   word-break: unset;
 
   &:last-of-type {
@@ -96,18 +102,30 @@
   }
 }
 
+@mixin unsetListItem() {
+  left: unset;
+  width: unset;
+  margin: unset;
+
+  &::before {
+    position: unset;
+    content: '';
+    left: unset;
+  }
+}
+
 @mixin blockquote {
   @include paragraph();
 
-  background-color: rgba($dirtyWhite, 0.25);
+  background-color: $nearWhite;
   border-left: 2px solid $mediumBlue;
   margin-bottom: 32px;
   margin-top: 32px;
-  padding: 32px;
+  padding: 20px 32px;
 
   color: $darkerGrey;
   font-family: $ffSerif;
-  font-size: 0.95em;
+  font-size: 0.975em;
   hyphens: none;
 
   @media #{$mqDesktop} {
@@ -115,12 +133,15 @@
     margin-bottom: 48px;
   }
 
-  ol, ul, li, a, p, b, strong, i, cite {
+  ol, ul, li, a,
+  p, b, strong, i, em,
+  cite {
     font-family: inherit;
     font-size: inherit;
     hyphens: inherit;
   }
 }
+
 
 // interactive elements
 @mixin button {
@@ -128,26 +149,29 @@
   // and provide the exact same visual behaviour
 
   display: inline-block;
+
+  -webkit-border-radius: 0;
   background-color: transparent;
   border: 0;
+  box-shadow: none;
   cursor: pointer;
-  padding-left: 0;
+  padding: 0;
+  width: min-content;
 
-  font-family: $ffButtonLabel;
-  font-weight: $fwRegular;
-  line-height: 22px;
+  font-family: $ffSansSerif;
+  font-weight: $fwBold;
   text-align: center;
   text-decoration: none;
 
-  &:hover {
-    text-decoration: none;
-  }
+  &:hover,
   &:active {
     text-decoration: none;
   }
+
   &:focus-visible {
     @include focusIndicator();
   }
+
   &:disabled,
   &[disabled] {
     cursor: not-allowed;
@@ -156,16 +180,14 @@
 
 @mixin anchor {
   @include paragraph();
+  @include underlined();
   cursor: pointer;
-  text-decoration: underline;
-  text-decoration-thickness: 1pt;
 
-  &:hover {
-    text-decoration: none;
-  }
+  &:hover,
   &:active {
     text-decoration: none;
   }
+
   &:focus-visible {
     @include focusIndicator();
   }
@@ -173,9 +195,12 @@
 
 @mixin select {
   @include paragraph();
+
   -moz-appearance: none;
   -webkit-appearance: none;
   -webkit-border-radius: 0;
+  appearance: none;
+
   background-color: $nearWhite;
   background-image:
     linear-gradient(45deg, transparent 50%, $darkerGrey 50%),
@@ -190,11 +215,21 @@
     5px 5px,
     1px 1.5em;
   background-repeat: no-repeat;
-  border: 1px solid $black;
+
+  border: 1px solid $nearBlack;
   padding: 8px 48px 8px 16px;
+
+  font-family: $ffSansSerif;
+  font-size: $fsMedium;
+  color: $darkerGrey;
 
   &:focus-visible {
     @include focusIndicator();
+  }
+
+  // hide the default arrow in ie10 and ie11
+  &::-ms-expand {
+    display: none;
   }
 
   // fix for firefox removes dotted outline on selection option
@@ -203,6 +238,7 @@
     text-shadow: 0 0 0 $black;
   }
 }
+
 
 // forms
 @mixin fieldset {
@@ -219,6 +255,8 @@
 
 @mixin textInput {
   -webkit-appearance: none;
+  -webkit-border-radius: 0;
+
   background-color: white;
   border-radius: 0;
   border: 1pt solid $middleGrey;
@@ -228,7 +266,7 @@
 
   color: $black;
   font-family: $ffSansSerif;
-  font-size: 16px;
+  font-size: $mainFontSize;
   font-weight: $fwRegular;
   line-height: 24px;
 
@@ -247,7 +285,7 @@
 
   color: $darkerGrey;
   font-family: $ffSerif;
-  font-size: 11pt;
+  font-size: $fsMedium;
   font-weight: $fwRegular;
   text-transform: capitalize;
 }
@@ -262,11 +300,13 @@
   font-weight: $fwRegular;
 }
 
+
 // image
 @mixin imageReset {
   line-height: 0;
   font-size: 0;
 }
+
 
 // a11y
 @mixin focusIndicator($color: $darkerBlue) {
@@ -305,4 +345,357 @@
 
 @mixin focusOnDark {
   @include focusOutline($lightBlue);
+}
+
+
+// article elements
+@mixin articleElements {
+  // headings
+  h1, h2, h3, h4, h5, h6 {
+    text-align: left;
+  }
+
+  h2 {
+    @include heading2();
+    margin-top: 48px !important;
+  }
+
+  h3 {
+    @include heading3();
+    margin-top: 32px !important;
+    margin-bottom: 16px !important;
+  }
+
+  h4 {
+    @include heading4();
+    margin-top: 24px !important;
+  }
+
+
+  // text blocks
+  p {
+    @include paragraph();
+    letter-spacing: .05pt;
+    text-align: justify;
+  }
+
+  em, cite {
+    font-style: italic;
+  }
+
+  strong {
+    font-weight: bold;
+  }
+
+  blockquote {
+    @include blockquote();
+    @include elementNeedsSpace();
+
+    em, cite {
+      font-style: normal;
+    }
+
+    :first-child {
+      margin-top: 0;
+    }
+
+    :last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  [lang="actionscript"] {
+    @include elementNeedsSpace();
+    background-color: rgba($dirtyWhite, 0.25);
+    color: $darkerGrey;
+    font-family: $ffMonospace;
+    font-size: 0.95em;
+    hyphens: none;
+    padding: 32px;
+  }
+
+  .quote-author {
+    position: relative;
+    top: -32px;
+
+    @include greySerif();
+    font-size: 0.95em;
+    text-align: right;
+
+    &:before {
+      content: "\2014";
+      margin-right: 4px;
+    }
+  }
+
+  ul {
+    @include list();
+    margin: 16px 0;
+
+    li {
+      @include unorderedListItem();
+      line-height: 1.75;
+      list-style: none;
+    }
+  }
+
+
+  // interactive elements
+  a {
+    @include anchor();
+    display: inline;
+    color: $darkerBlue;
+
+    &:hover {
+      color: $blue;
+    }
+
+    &.cta {
+      @include anchorWithArrow();
+      display: table;
+      margin-top: 16px;
+
+      font-family: $ffSerif;
+    }
+
+    &:has(img.full-width.exceed) {
+      display: inline-block;
+      width: 100%;
+    }
+  }
+
+
+  // images and embeds
+  img {
+    @include imageReset();
+
+    &.full-width {
+      width: 100%;
+
+      &.exceed {
+        position: relative;
+
+        @media #{$mqDesktop} {
+          $halfCol: calc(#{$desktopContentCol} / 2);
+          margin-left: calc(50% - $halfCol);
+          width: $desktopContentCol;
+        }
+
+        @media #{$mqLargeDesktop} {
+          $halfCol: calc(#{$largeContentCol} / 2);
+          margin-left: calc(50% - $halfCol);
+          width: $largeContentCol;
+        }
+      }
+    }
+
+    &.half-width {
+      width: 100%;
+
+      @media #{$mqTablet} {
+        position: relative;
+        left: 25%;
+        width: 50%;
+      }
+    }
+  }
+
+  .pixelated {
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: -moz-crisp-edges;
+    image-rendering: -o-pixelated;
+    image-rendering: pixelated;
+  }
+
+  figure {
+    @include elementNeedsSpace();
+
+    a {
+      display: inline-block;
+    }
+  }
+
+  figcaption,
+  .figure-caption,
+  .photo-credit {
+    margin: 8px auto 16px auto;
+
+    @include greySerif();
+    font-size: $fsMedium;
+    line-height: 1.25;
+    text-align: center;
+
+    em, cite {
+      font-style: normal;
+    }
+
+    a {
+      @include greySerif();
+      font-size: $fsMedium;
+    }
+
+    @media #{$mqTablet} {
+      width: 66%;
+    }
+  }
+
+  .widescreen-iframe {
+    background-color: black;
+    width: 100%;
+    height: 162px;
+
+    @media #{$mqPhone} {
+      height: 192px;
+    }
+    @media #{$mqTablet} {
+      height: 360px;
+    }
+    @media #{$mqDesktop} {
+      height: 316px;
+    }
+    @media #{$mqLargeDesktop} {
+      height: 350px;
+    }
+  }
+
+
+  // message blocks
+  .article-series,
+  .positive-block,
+  .warning-block,
+  .negative-block,
+  .tldr-block {
+    position: relative;
+    border-width: 2px;
+    border-style: solid;
+    padding: 24px;
+
+    @include elementNeedsSpace();
+
+    font-family: $ffSerif;
+    font-size: $mainFontSize;
+    font-weight: $fwRegular;
+    color: $nearBlack;
+
+    * {
+      font-family: $ffSerif;
+      font-size: $mainFontSize;
+      color: $nearBlack;
+
+      &:hover {
+        color: $nearBlack;
+      }
+    }
+
+    :first-child {
+      margin-top: 0 !important;
+    }
+
+    :last-child {
+      margin-bottom: 0 !important;
+    }
+  }
+
+  .positive-block,
+  .warning-block,
+  .negative-block,
+  .tldr-block {
+    padding-left: 48px;
+
+    &::before {
+      display: inline-block;
+      position: absolute;
+      height: 16px;
+      left: 20px;
+      top: 28px;
+      width: 8px;
+
+      content: '';
+      line-height: 16px;
+      text-align: center;
+    }
+  }
+
+  .article-series {
+    background: #E2E7F9;
+    border-color: $blue;
+  }
+
+  .tldr-block {
+    background: $nearWhite;
+    border-color: $middleGrey;
+
+    &::before {
+      content: '💡';
+    }
+  }
+
+  .positive-block {
+    background: #DEEFEE;
+    border-color: $green;
+
+    &::before {
+      content: '✅';
+      filter: saturate(0.666);
+    }
+  }
+
+  .warning-block {
+    background: #F7F7E6;
+    border-color: #F6C514;
+
+    &::before {
+      content: '⚠️';
+    }
+  }
+
+  .negative-block {
+    background: #FFEEEE;
+    border-color: #990000;
+
+    &::before {
+      content: '❌';
+    }
+  }
+}
+
+@mixin articleContentWidth {
+  width: $smallContentCol;
+
+  @media #{$mqPhone} {
+    width: $phoneContentCol;
+  }
+
+  @media #{$mqTablet} {
+    $span: calc(
+      (4 * #{$tabletColWidth})
+      + (3 * #{$gutterWidth})
+    );
+    width: #{$span};
+  }
+
+  @media #{$mqDesktop} {
+    $span: calc(
+      (3 * #{$desktopColWidth})
+      + (2 * #{$gutterWidth})
+    );
+    width: #{$span};
+  }
+
+  @media #{$mqLargeDesktop} {
+    $span: calc(
+      (3 * #{$largeDesktopColWidth})
+      + (2 * #{$gutterWidth})
+    );
+    width: #{$span};
+  }
+}
+
+@mixin articleContent {
+  @include articleContentWidth();
+  color: $nearBlack;
+  margin: 32px auto 0 auto;
+  position: relative;
+
+  @include articleElements();
 }

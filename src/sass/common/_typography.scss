@@ -3,19 +3,22 @@ $ffSansSerif: Helvetica, Arial, sans-serif;
 $ffSerif: 'PolyItalic';
 $ffMonospace: 'SourceCodePro', Courier, monospace;
 
-// TODO: deprecate
+// font families - aliases
 $ffHeading: $ffSansSerif;
+$ffBody: $ffSansSerif;
+$ffLabel: $ffSerif;
 $ffButtonLabel: $ffSansSerif;
 
 // font sizes
-$fsSmol: 11pt;
-$fsTextBody: 12.5pt;
+$fsVerySmol: 11px;
+$fsSmol: 12px;
+$fsMedium: 14px;
+$fsTextBody: 16px;
 $mainFontSize: $fsTextBody;
 
 // font weights
 $fwLight: 300;
 $fwRegular: 400;
-$fwNormal: $fwRegular; // TODO: deprecate
 $fwMedium: 500;
 $fwSemiBold: 600;
 $fwBold: 700;

@@ -1,96 +1,93 @@
-//===========/----------------------------------------------
-//  [_TAB]  /  Table of Contents
-//=========/------------------------------------------------
-/*
-    _TAB:   Table of Contents
-    _IMP:   Imports
-    _HTML:  Native HTML Elements
-    _SHA:   Shared Classes
-    _EXT:   Extensions
-*/
+@import "mixins/ui";
+@import "mixins/mixins";
+@import "mixins/components";
 
 
-//===========/----------------------------------------------
-//  [_IMP]  /  Imports
-//=========/------------------------------------------------
-
-@import "common/variables.scss";
-@import "common/mixins.scss";
-
-
-//===========/----------------------------------------------
-//  [_HTML] /  HTML Elements
-//=========/------------------------------------------------
-
+// global
 body, html {
   background: white;
   font-family: $ffSansSerif;
   color: $nearBlack;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  margin: 0.125em 0;
-  overflow-wrap: break-word;
-  line-height: 1;
-  font-family: $ffHeading;
-  font-weight: $fwExtraBold;
+img {
+  @include imageReset();
+}
 
-  @media (min-width: $tablet) {
-    margin: 0.5em 0;
-  }
+figure {
+  @include elementNeedsSpace();
+}
+
+
+// headings
+h1, h2, h3, h4, h5, h6 {
+  @include headingBase();
 }
 
 h1 {
-  letter-spacing: -0.9pt;
-  font-size: 2.5em;
+  @include heading1();
 }
 
 h2 {
-  font-size: 1.9em;
+  @include heading2();
+  margin-top: 48px;
 }
 
-p, pre {
-  line-height: 1.5;
-  margin: 0.75em 0;
-  text-align: left;
+h3 {
+  @include heading3();
+  margin-top: 32px;
+  margin-bottom: 16px;
 }
 
+h4 {
+  @include heading4();
+  margin-top: 24px;
+}
+
+
+// text blocks
 p {
-  font-size: $mainFontSize;
-  hyphens: auto;
-  text-align: justify;
-  word-break: normal;
+  @include paragraph();
+}
+
+em, cite {
+  font-style: italic;
+}
+
+strong {
+  font-weight: bold;
+}
+
+ol, ul {
+  @include list();
+  margin: 16px 0;
+  padding: 0 0 0 20px;
+
+  li {
+    @include unorderedListItem();
+    line-height: 1.75;
+  }
 }
 
 pre, code {
   font-family: $ffMonospace !important;
+  line-height: 1.5;
+  margin: 0.75em 0;
 }
 
 pre ol,
 pre li,
 pre li div {
   font-family: $ffMonospace !important;
-  font-size: 10.5pt;
+  font-size: $fsMedium;
   line-height: 1.25;
   letter-spacing: -0.5pt;
 }
 
 pre {
   li:nth-child(odd) {
+    // why!?
     background-color: $nearWhite;
-  }
-}
-
-a {
-  text-decoration: none;
-  color: $darkerBlue;
-
-  &:hover {
-    text-decoration: underline;
-  }
-
-  &.btn-primary {
-    color: $nearWhite !important;
   }
 }
 
@@ -100,343 +97,99 @@ article {
 }
 
 blockquote {
-  margin: 0;
-  padding: 20px 32px;
-  background-color: $nearWhite;
+  @include blockquote();
+}
 
-  font-family: $ffSerif;
+[lang="actionscript"] {
+  @include elementNeedsSpace();
+  background-color: rgba($dirtyWhite, 0.25);
   color: $darkerGrey;
+  font-family: $ffMonospace;
+  font-size: 0.95em;
+  hyphens: none;
+  padding: 32px;
+}
 
-  p {
-    text-align: justify;
+
+// interactive elements
+a {
+  display: inline-block;
+
+  @include anchor();
+  color: $darkerBlue;
+
+  &:hover {
+    color: $blue;
   }
 
-  em {
-    font-style: normal;
+  &.btn-primary {
+    color: $nearWhite !important;
+  }
+
+  &.cta {
+    @include anchorWithArrow();
+    margin-top: 16px;
   }
 }
 
+details > summary {
+  list-style: none !important; // remove default arrow
+
+  &::-webkit-details-marker {
+    display: none !important; // hide marker
+  }
+}
+
+// forms
 input[type="text"],
 textarea {
-  -webkit-appearance: none;
-  -webkit-border-radius: 0;
+  @include textInput();
+}
 
-  background-color: white;
-  border-radius: 0;
-  border: 1pt solid $middleGrey;
-  box-shadow: inset 0px 1px 2px rgba(0, 0, 0, 0.25);
-  padding: 8px;
+@include checkbox();
 
-  font-family: $ffSansSerif;
-  font-size: $mainFontSize;
-  color: $nearBlack;
+select {
+  @include select();
 }
 
 input[type="submit"] {
-  @include buttonStyle;
-}
-
-header {
-  background: $nearBlack;
-  color: white;
-  margin-bottom: 32px;
-  overflow: hidden;
-  padding: 16px 0 8px 0;
-
-  .header-title {
-    float: left;
-    padding: 8px 0 16px;
-    width: 100%;
-
-    @media (min-width: $desktop) {
-      width: 50%;
-    }
-  }
-
-  .title {
-    font-family: $ffHeading;
-    font-size: 22pt;
-    font-weight: $fwExtraBold;
-    line-height: 1;
-
-    @media (min-width: $tablet) {
-      font-size: 30pt;
-    }
-
-    a {
-      color: white;
-
-      &:hover {
-        text-decoration: none;
-      }
-    }
-  }
-
-  .description {
-    padding-bottom: 8px;
-    @include descriptionStyle;
-  }
-
-  nav {
-    float: left;
-    text-transform: uppercase;
-    font-family: $ffHeading;
-    font-weight: $fwSemiBold;
-    font-size: 10pt;
-    letter-spacing: -0.333pt;
-
-    @media (min-width: $tablet) {
-      font-size: 14pt;
-    }
-    @media (min-width: $desktop) {
-      float: right;
-    }
-
-    ul {
-      padding: 0;
-      margin: 0;
-    }
-
-    li {
-      float: left;
-      margin-right: 8px;
-
-      @media (min-width: $tablet) {
-        margin-right: 12px;
-      }
-      @media (min-width: $desktop) {
-        margin-right: 20px;
-      }
-      @media (min-width: $largeDesktop) {
-        margin-right: 30px;
-      }
-
-      &:nth-last-child(1) {
-        margin-right: 0;
-      }
-    }
-
-    a {
-      color: white;
-
-      &:hover {
-        text-decoration: none;
-        color: $darkerBlue;
-      }
-
-      &.selected {
-        color: $darkerBlue;
-      }
-    }
-  }
-}
-
-footer {
-  clear: both;
-  margin-top: 48px;
-  padding: 32px 0 48px 0;
-  background: $nearBlack;
-  color: white;
-  overflow: hidden;
-
-  .site-meta {
-    overflow: hidden;
-    padding-bottom: 16px;
-  }
-
-  .title {
-    line-height: 1;
-    font-family: $ffHeading;
-    font-weight: $fwExtraBold;
-    font-size: 22pt;
-
-    @media (min-width: $tablet) {
-      font-size: 30pt;
-    }
-  }
-
-  .description {
-    @include descriptionStyle;
-  }
-
-  .column {
-    position: relative;
-    float: left;
-    width: 50%;
-
-    &.perso {
-      @media (min-width: $tablet) {
-        width: 25%;
-      }
-      @media (min-width: $desktop) {
-        width: 25%;
-      }
-    }
-
-    &.academia {
-      display: none;
-
-      @media (min-width: $tablet) {
-        display: block;
-        width: 25%;
-      }
-      @media (min-width: $desktop) {
-        width: 25%;
-      }
-    }
-
-    &.pro {
-      display: none;
-
-      @media (min-width: $tablet) {
-        display: block;
-        width: 25%;
-      }
-      @media (min-width: $desktop) {
-        width: 25%;
-      }
-    }
-
-    &.contact {
-      @media (min-width: $tablet) {
-        width: 25%;
-      }
-      @media (min-width: $desktop) {
-        width: 25%;
-      }
-    }
-  }
-
-  .heading {
-    font-family: $ffHeading;
-    font-weight: $fwExtraBold;
-    text-transform: uppercase;
-    color: $paleGrey;
-  }
-
-  ul {
-    padding: 0;
-    margin: 0 0 0 16px;
-
-    @media (min-width: $tablet) {
-      margin: 0 0 0 8px;
-    }
-    @media (min-width: $desktop)
-    {
-      margin: 0 0 0 16px;
-    }
-  }
-
-  li {
-    padding: 0;
-    margin: 0.45em 0;
-    list-style: none;
-    font-family: $ffSerif;
-    line-height: 1.125;
-
-    a {
-      color: white;
-    }
-  }
-}
-
-ol, ul {
-  padding: 0 0 0 20px;
-}
-
-select {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-
-  padding: 8px 48px 8px 16px;
-  border: 1px solid $nearBlack;
-
-  background-color: $nearWhite;
-  background-image:
-    linear-gradient(45deg, transparent 50%, $darkerGrey 50%),
-    linear-gradient(135deg, $darkerGrey 50%, transparent 50%),
-    linear-gradient(to right, $darkGrey, $darkGrey);
-  background-position:
-    calc(100% - 19px) calc(1em + 2px),
-    calc(100% - 14px) calc(1em + 2px),
-    calc(100% - 2.5em) 0.5em;
-  background-size:
-    5px 5px,
-    5px 5px,
-    1px 1.5em;
-  background-repeat: no-repeat;
-
-  font-family: $ffSansSerif;
-  font-size: 11pt;
-  color: $darkerGrey;
-
-  &::-ms-expand {
-    display: none; /* hide the default arrow in ie10 and ie11 */
-  }
+  @include primaryButton();
 }
 
 
-//===========/----------------------------------------------
-//  [_SHA]  /  Shared Classes
-//=========/------------------------------------------------
-
+// styles
 .centered {
-  position: relative;
-  margin: 0 auto;
-  width: $phoneContentCol;
-
-  @media (min-width: $tablet) {
-    width: $tabletContentCol;
-  }
-  @media (min-width: $desktop) {
-    width: $desktopContentCol;
-  }
-  @media (min-width: $largeDesktop) {
-    width: $largeContentCol;
-  }
+  @include centeredContent();
 }
 
 .left-column-content {
-  float: left;
-  width: 100%;
-  padding-bottom: 16px;
-
-  @media (min-width: $tablet) {
-    width: $tabletContentCol;
-    padding-bottom: 32px;
-  }
+  @include leftColumnContent();
 }
 
 .btn-primary {
-  @include buttonStyle;
+  @include primaryButton();
 }
 
-.sub-heading {
+.sub-heading, .subheading {
   margin: 2px 0 16px 0;
-  line-height: 1.125;
-  font-family: $ffSerif;
-  color: $darkGrey;
 
-  @media (min-width: $desktop) {
+  @include greySerif();
+  line-height: 1.125;
+
+  @media #{$mqDesktop} {
     margin: 2px 0 24px 0;
   }
 }
 
 .cta {
-  font-family: $ffSerif;
-
-  &::after {
-    content: " ➚";
-    color: $blue;
-  }
+  @include anchorWithArrow();
 }
 
 .widescreen-iframe {
   width: $phoneContentCol;
   height: 192px; // 16:9 of width
 
-  @media (min-width: $tablet) {
+  @media #{$mqTablet} {
     width: 640px;
     height: 360px; // 16:9 of width
   }
@@ -446,7 +199,7 @@ select {
   width: $phoneContentCol;
   height: 256px; // 4:3 of width
 
-  @media (min-width: $tablet) {
+  @media #{$mqTablet} {
     width: 640px;
     height: 480px; // 4:3 of width
   }
@@ -473,7 +226,7 @@ select {
   &.half-left {
     width: 100% !important;
 
-    @media (min-width: $tablet) {
+    @media #{$mqTablet} {
       width: 50% !important;
     }
   }
@@ -482,25 +235,39 @@ select {
     width: 100% !important;
     float: right !important;
 
-    @media (min-width: $tablet) {
+    @media #{$mqTablet} {
       width: 50% !important;
     }
   }
 }
 
-.captioned-text,
+figcaption,
 .figure-caption,
+.captioned-text,
 .photo-credit {
-  @include captionStyle;
+  margin: 8px 0 16px;
+
+  @include greySerif();
+  font-size: $fsMedium;
   text-align: center;
 }
 
 .quote-author {
-  @include captionStyle;
-  text-align: right;
+  position: relative;
   margin: 16px;
+  font-size: 0.95em;
+  text-align: right;
+  top: -32px;
 
-  @media (min-width: $tablet) {
+  @include greySerif();
+  text-align: right;
+
+  &::before {
+    content: "—";
+    margin-right: 8px;
+  }
+
+  @media #{$mqTablet} {
     margin: 16px 24px;
   }
 }
@@ -532,7 +299,7 @@ select {
 .mobile-only-visible {
   display: block !important;
 
-  @media (min-width: $tablet) {
+  @media #{$mqTablet} {
     display: none !important;
   }
 }
@@ -540,7 +307,7 @@ select {
 .mobile-hidden {
   display: none !important;
 
-  @media (min-width: $tablet) {
+  @media #{$mqTablet} {
     display: block !important;
   }
 }
@@ -550,7 +317,7 @@ select {
   width: 100% !important;
   margin: 24px auto;
 
-  @media (min-width: $tablet) {
+  @media #{$mqTablet} {
     margin: 32px auto;
     width: 480px !important;
     max-width: 480px !important;
@@ -562,19 +329,15 @@ select {
   width: $smallContentCol !important;
   max-width: $smallContentCol !important;
 
-  @media (min-width: $phone) {
+  @media #{$mqPhone} {
     width: $phoneContentCol !important;
     max-width: $phoneContentCol !important;
   }
-  @media (min-width: $tablet) {
+
+  @media #{$mqTablet} {
     width: 480px !important;
     max-width: 480px !important;
   }
 }
-
-
-//===========/----------------------------------------------
-//  [_EXT]  /  Extensions
-//=========/------------------------------------------------
 
 @import "print.scss";
