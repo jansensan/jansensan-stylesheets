@@ -5,4 +5,28 @@
 
 .mce-content-body {
   @include articleContent();
+
+  // override widths only for the editor
+  width: calc(100% - 40px);
+
+  @media #{$mqPhone} {
+    width: calc(100% - 40px);
+  }
+
+  @media #{$mqTablet} {
+    @include tabletArticleWidth();
+  }
+
+  @media #{$mqDesktop} {
+    @include desktopArticleWidth();
+  }
+
+  @media #{$mqLargeDesktop} {
+    @include largeDesktopArticleWidth();
+  }
+
+  // override wp adding padding
+  ul {
+    padding-left: 0;
+  }
 }

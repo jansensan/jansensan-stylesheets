@@ -748,6 +748,30 @@
   }
 }
 
+@mixin tabletArticleWidth {
+  $span: calc(
+    (4 * #{$tabletColWidth})
+    + (3 * #{$gutterWidth})
+  );
+  width: #{$span};
+}
+
+@mixin desktopArticleWidth {
+  $span: calc(
+    (3 * #{$desktopColWidth})
+    + (2 * #{$gutterWidth})
+  );
+  width: #{$span};
+}
+
+@mixin largeDesktopArticleWidth {
+  $span: calc(
+    (3 * #{$largeDesktopColWidth})
+    + (2 * #{$gutterWidth})
+  );
+  width: #{$span};
+}
+
 @mixin articleContentWidth {
   width: $smallContentCol;
 
@@ -756,27 +780,15 @@
   }
 
   @media #{$mqTablet} {
-    $span: calc(
-      (4 * #{$tabletColWidth})
-      + (3 * #{$gutterWidth})
-    );
-    width: #{$span};
+    @include tabletArticleWidth();
   }
 
   @media #{$mqDesktop} {
-    $span: calc(
-      (3 * #{$desktopColWidth})
-      + (2 * #{$gutterWidth})
-    );
-    width: #{$span};
+    @include desktopArticleWidth();
   }
 
   @media #{$mqLargeDesktop} {
-    $span: calc(
-      (3 * #{$largeDesktopColWidth})
-      + (2 * #{$gutterWidth})
-    );
-    width: #{$span};
+    @include largeDesktopArticleWidth();
   }
 }
 
