@@ -87,7 +87,7 @@
 
   font-size: $mainFontSize;
   hyphens: none;
-  line-height: 1.25;
+  line-height: 1.5;
   text-align: left;
   word-break: unset;
 
@@ -127,6 +127,7 @@
   font-family: $ffSerif;
   font-size: 0.975em;
   hyphens: none;
+  line-height: 1.25;
 
   @media #{$mqDesktop} {
     margin-top: 48px;
@@ -526,7 +527,6 @@
 
     li {
       @include unorderedListItem();
-      line-height: 1.75;
       list-style: none;
     }
   }
