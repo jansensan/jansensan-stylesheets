@@ -483,6 +483,7 @@
   blockquote {
     @include blockquote();
     @include elementNeedsSpace();
+    @include noSideMargins();
 
     em, cite {
       font-style: normal;
@@ -501,6 +502,7 @@
   [lang="actionscript"] {
     @include blockquote();
     @include elementNeedsSpace();
+    @include noSideMargins();
 
     font-family: $ffMonospace;
     color: $darkerGrey;
