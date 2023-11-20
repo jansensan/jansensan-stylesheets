@@ -1,0 +1,119 @@
+@import '../mixins/ui';
+
+
+.single {
+  .article-content {
+    @include articleContent();
+
+    h1 {
+      @include heading1();
+      margin: 32px 0 4px 0 !important;
+      line-height: 1.25;
+    }
+
+    .subheading,
+    .last-update {
+      @include greySerif();
+      hyphens: none;
+      line-height: 1.25;
+      text-align: left;
+    }
+
+    .last-update {
+      margin-top: 48px;
+    }
+
+    .comments-block {
+      margin-top: 64px;
+
+      .comments {
+        @include heading4();
+      }
+
+      .commentlist {
+        .avatar {
+          display: none;
+        }
+
+        .comment-author {
+          margin-top: 16px;
+          margin-bottom: 0;
+
+          @include paragraph();
+          font-weight: $fwBold;
+        }
+      }
+
+      .commentmetadata,
+      .comment-meta {
+        margin-bottom: 16px;
+
+        a {
+          margin-top: -8px;
+
+          @include description();
+          color: $darkGrey;
+          text-decoration: none;
+        }
+      }
+
+      .comment-respond {
+        margin-top: 32px;
+
+        .comment-reply-title {
+          @include heading4();
+        }
+
+        .required-field-message {
+          display: block;
+          margin-top: 16px;
+        }
+
+        label {
+          @include inputLabel();
+        }
+
+        // input[type="checkbox"] + label {
+        //   display: inline-block;
+        //   cursor: pointer;
+        //   padding-left: 4px;
+        //   text-transform: unset;
+        // }
+
+        .comment-form-cookies-consent {
+          margin-top: 16px;
+
+          &:focus-within {
+            @include focusIndicator();
+          }
+
+          label {
+            line-height: 1;
+            margin: 0;
+          }
+
+          @include checkbox();
+        }
+
+        input[type="text"], textarea {
+          @include textInput();
+          width: 100%;
+          padding: 10px;
+        }
+
+        input[type="submit"].submit {
+          @include primaryButton();
+        }
+      }
+
+      .akismet_comment_form_privacy_notice {
+        font-size: $fsSmol;
+        margin-top: 48px;
+
+        * {
+          font-size: $fsSmol;
+        }
+      }
+    }
+  }
+}
