@@ -497,14 +497,13 @@
     }
   }
 
+  pre,
   [lang="actionscript"] {
+    @include blockquote();
     @include elementNeedsSpace();
-    background-color: rgba($dirtyWhite, 0.25);
-    color: $darkerGrey;
+
     font-family: $ffMonospace;
-    font-size: 0.95em;
-    hyphens: none;
-    padding: 32px;
+    color: $darkerGrey;
   }
 
   .quote-author {
