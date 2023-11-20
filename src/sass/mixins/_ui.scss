@@ -81,6 +81,7 @@
 
   position: relative;
   left: $leftMargin;
+  list-style: none;
   margin-bottom: 0.5em;
   width: calc(100% - #{$leftMargin});
 
@@ -355,9 +356,11 @@
   }
 
   input[type="checkbox"] {
+    display: inline-block;
+    cursor: pointer;
+    margin: 0;
     width: 16px;
     height: 16px;
-    cursor: pointer;
 
     &:focus-visible {
       @include noFocusIndicator();

@@ -12,11 +12,6 @@
   padding: 64px 0;
   width: 100%;
 
-  ul {
-    // override jansensan.css
-    margin: 24px 0;
-  }
-
   @media #{$mqDesktop} {
     .heading-container {
       width: 50%;
@@ -27,12 +22,23 @@
     margin-top: 16px;
   }
 
+  .contact-cta-list {
+    // override jansensan.css
+    margin: 24px 0;
+    padding: 0;
+  }
+
   .list-item {
+    margin: 8px 0;
+
     @include unorderedListItem();
     color: $nearWhite;
+    line-height: 1.125;
   }
 
   .contact-cta {
+    margin: 0;
+
     color: $nearWhite;
     font-family: $ffSerif;
     font-size: $fsMedium;
