@@ -602,6 +602,7 @@
 
   figure {
     @include elementNeedsSpace();
+    @include noSideMargins();
 
     a {
       display: inline-block;
