@@ -567,6 +567,7 @@
 
       &.exceed {
         position: relative;
+        max-width: unset; // override wp-content.css
 
         @media #{$mqDesktop} {
           $halfCol: calc(#{$desktopContentCol} / 2);
