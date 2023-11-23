@@ -571,6 +571,7 @@
     &:has(img.half-width),
     &:has(img.full-width),
     &:has(img.full-width.exceed) {
+      @include imageReset();
       display: inline-block;
       width: 100%;
     }
