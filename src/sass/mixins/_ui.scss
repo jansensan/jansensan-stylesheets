@@ -2,7 +2,7 @@
 @import '../mixins/mixins';
 
 
-// utils
+// local utils
 @mixin exceedImgWidthDesktop {
   $halfCol: calc(#{$desktopContentCol} / 2);
   margin-left: calc(50% - $halfCol);
