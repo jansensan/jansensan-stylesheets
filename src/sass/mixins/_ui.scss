@@ -1,6 +1,19 @@
 @import '../common/variables';
-
 @import '../mixins/mixins';
+
+
+// utils
+@mixin exceedImgWidthDesktop {
+  $halfCol: calc(#{$desktopContentCol} / 2);
+  margin-left: calc(50% - $halfCol);
+  width: $desktopContentCol;
+}
+
+@mixin exceedImgWidthLargeDesktop {
+  $halfCol: calc(#{$largeContentCol} / 2);
+  margin-left: calc(50% - $halfCol);
+  width: $largeContentCol;
+}
 
 
 // headings
@@ -555,9 +568,21 @@
       font-family: $ffSerif;
     }
 
+    &:has(img.half-width),
+    &:has(img.full-width),
     &:has(img.full-width.exceed) {
       display: inline-block;
       width: 100%;
+    }
+
+    &:has(img.full-width.exceed) {
+      @media #{$mqDesktop} {
+        @include exceedImgWidthDesktop();
+      }
+
+      @media #{$mqLargeDesktop} {
+        @include exceedImgWidthLargeDesktop();
+      }
     }
   }
 
@@ -574,15 +599,11 @@
         max-width: unset; // override wp-content.css
 
         @media #{$mqDesktop} {
-          $halfCol: calc(#{$desktopContentCol} / 2);
-          margin-left: calc(50% - $halfCol);
-          width: $desktopContentCol;
+          @include exceedImgWidthDesktop();
         }
 
         @media #{$mqLargeDesktop} {
-          $halfCol: calc(#{$largeContentCol} / 2);
-          margin-left: calc(50% - $halfCol);
-          width: $largeContentCol;
+          @include exceedImgWidthLargeDesktop();
         }
       }
     }
