@@ -403,7 +403,7 @@
 
 // a11y
 @mixin focusIndicator($color: $darkerBlue) {
-  box-shadow: 0 0 0 4px white, 0 0 0 8px $color;
+  box-shadow: 0 0 0 2pt white, 0 0 0 4pt $color;
   outline: 0;
 
   &::-moz-focus-inner {
