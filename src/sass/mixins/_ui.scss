@@ -485,6 +485,10 @@
     @include elementNeedsSpace();
     @include noSideMargins();
 
+    em, strong {
+      color: $nearBlack;
+    }
+
     em, cite {
       font-style: normal;
     }
