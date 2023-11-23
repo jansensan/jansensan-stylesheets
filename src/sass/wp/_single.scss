@@ -31,26 +31,38 @@
       }
 
       .commentlist {
+        .comment {
+          @include unsetListItem();
+          margin: 32px 0;
+        }
+
         .avatar {
           display: none;
         }
 
         .comment-author {
+          @include paragraph();
+          font-size: $fsMedium;
+          font-style: normal;
+          font-weight: $fwBold;
+
+          // ensure to override paragraph mixin
           margin-top: 16px;
           margin-bottom: 0;
 
-          @include paragraph();
-          font-weight: $fwBold;
+          * {
+            font-size: $fsMedium;
+            font-style: normal;
+            font-weight: $fwBold;
+          }
         }
       }
 
       .commentmetadata,
       .comment-meta {
-        margin-bottom: 16px;
+        margin-bottom: 8px;
 
         a {
-          margin-top: -8px;
-
           @include description();
           color: $darkGrey;
           text-decoration: none;
@@ -65,20 +77,15 @@
         }
 
         .required-field-message {
+          @include inputLabel();
           display: block;
-          margin-top: 16px;
+          margin: 32px 0;
+          text-transform: unset;
         }
 
         label {
           @include inputLabel();
         }
-
-        // input[type="checkbox"] + label {
-        //   display: inline-block;
-        //   cursor: pointer;
-        //   padding-left: 4px;
-        //   text-transform: unset;
-        // }
 
         .comment-form-cookies-consent {
           margin-top: 16px;
