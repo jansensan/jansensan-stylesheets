@@ -651,9 +651,19 @@
   figure {
     @include elementNeedsSpace();
     @include noSideMargins();
+    line-height: 0;
+    font-size: 0;
 
     a {
       display: inline-block;
+      line-height: 0;
+      font-size: 0;
+    }
+
+    &.manual {
+      a {
+        display: inline;
+      }
     }
   }
 
@@ -699,6 +709,10 @@
     @media #{$mqLargeDesktop} {
       height: 350px;
     }
+  }
+
+  hr {
+    @include pageSeparator();
   }
 
 
