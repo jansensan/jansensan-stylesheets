@@ -299,6 +299,27 @@
   }
 }
 
+@mixin pageSeparator {
+  border: 0;
+  border-top: 1px solid $paleGrey;
+  margin: 32px auto;
+  width: 160px;
+
+  &.last {
+    margin: 32px auto 64px;
+  }
+
+  @media (min-width: $tablet) {
+    width: 240px;
+  }
+  @media (min-width: $desktop) {
+    width: 360px;
+  }
+  @media (min-width: $largeDesktop) {
+    width: 480px;
+  }
+}
+
 
 // forms
 @mixin fieldset {
