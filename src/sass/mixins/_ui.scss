@@ -654,6 +654,12 @@
     line-height: 0;
     font-size: 0;
 
+    a,
+    iframe,
+    .wp-video {
+      margin-bottom: 0;
+    }
+
     a {
       display: inline-block;
       line-height: 0;
@@ -670,7 +676,7 @@
   figcaption,
   .figure-caption,
   .photo-credit {
-    margin: 8px auto 16px auto;
+    margin: 16px auto;
 
     @include greySerif();
     font-size: $fsMedium;
