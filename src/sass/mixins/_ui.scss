@@ -570,6 +570,18 @@
     }
   }
 
+  kbd {
+    background-color: $nearWhite;
+    border-radius: 2px;
+    border: 1px solid $paleGrey;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, .25),
+                0 2px 0 0 rgba(255, 255, 255, .875) inset;
+    padding: 1px 5px;
+
+    font-family: $ffMonospace !important;
+    font-size: 0.9em;
+  }
+
 
   // interactive elements
   a {
