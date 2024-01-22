@@ -621,7 +621,7 @@
   }
 
 
-  // images and embeds
+  // images, figures, and embeds
   img {
     @include imageReset();
 
@@ -658,6 +658,28 @@
     image-rendering: -moz-crisp-edges;
     image-rendering: -o-pixelated;
     image-rendering: pixelated;
+  }
+
+  table {
+    border: 2px solid $middleGrey;
+    border-spacing: 0;
+    border-collapse: separate;
+    width: 100%;
+
+    th, td {
+      border: 1px solid $middleGrey;
+      border-spacing: 0;
+      border-collapse: separate;
+      padding: 5px;
+
+      @include paragraph();
+      font-size: $fsMedium;
+      vertical-align: middle;
+    }
+
+    th {
+      font-weight: bold;
+    }
   }
 
   figure {
