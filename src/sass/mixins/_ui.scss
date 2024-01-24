@@ -758,7 +758,11 @@
   .positive-block,
   .warning-block,
   .negative-block,
-  .tldr-block {
+  .critical-block,
+  .error-block,
+  .tldr-block,
+  .fyi-block,
+  .tip-block {
     position: relative;
     border-width: 2px;
     border-style: solid;
@@ -766,10 +770,11 @@
 
     @include elementNeedsSpace();
 
+    color: $darkerGrey;
     font-family: $ffSerif;
     font-size: $mainFontSize;
     font-weight: $fwRegular;
-    color: $nearBlack;
+    letter-spacing: 0.125pt;
 
     * {
       font-family: $ffSerif;
@@ -781,8 +786,13 @@
       }
     }
 
+    code {
+      font-size: 0.9em;
+      letter-spacing: -0.125pt;
+    }
+
     :first-child {
-      margin-top: 0 !important;
+      margin-top: 2px !important;
     }
 
     :last-child {
@@ -790,10 +800,19 @@
     }
   }
 
+  .article-series {
+    background: #E2E7F9;
+    border-color: $blue;
+  }
+
   .positive-block,
   .warning-block,
   .negative-block,
-  .tldr-block {
+  .critical-block,
+  .error-block,
+  .tldr-block,
+  .fyi-block,
+  .tip-block {
     padding-left: 48px;
 
     &::before {
@@ -810,14 +829,11 @@
     }
   }
 
-  .article-series {
-    background: #E2E7F9;
-    border-color: $blue;
-  }
-
-  .tldr-block {
+  .tldr-block,
+  .fyi-block,
+  .tip-block {
     background: $nearWhite;
-    border-color: $middleGrey;
+    border-color: $paleGrey;
 
     &::before {
       content: '💡';
@@ -844,7 +860,9 @@
     }
   }
 
-  .negative-block {
+  .negative-block,
+  .critical-block,
+  .error-block {
     background: #FFEEEE;
     border-color: #990000;
 
