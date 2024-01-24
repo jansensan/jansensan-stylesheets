@@ -136,10 +136,11 @@
   margin-top: 32px;
   padding: 20px 32px;
 
-  color: $darkerGrey;
+  color: $nearBlack;
   font-family: $ffSerif;
   font-size: 0.975em;
   hyphens: none;
+  letter-spacing: 0.125pt;
   line-height: 1.25;
 
   @media #{$mqDesktop} {
@@ -153,6 +154,18 @@
     font-family: inherit;
     font-size: inherit;
     hyphens: inherit;
+  }
+
+  em, cite {
+    font-style: normal;
+  }
+
+  :first-child {
+    margin-top: 0;
+  }
+
+  :last-child {
+    margin-bottom: 0;
   }
 }
 
@@ -518,22 +531,6 @@
     @include blockquote();
     @include elementNeedsSpace();
     @include noSideMargins();
-
-    em, strong {
-      color: $nearBlack;
-    }
-
-    em, cite {
-      font-style: normal;
-    }
-
-    :first-child {
-      margin-top: 0;
-    }
-
-    :last-child {
-      margin-bottom: 0;
-    }
   }
 
   pre,
