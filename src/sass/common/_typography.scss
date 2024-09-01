@@ -1,10 +1,10 @@
 // font families
-$ffSansSerif: Helvetica, Arial, sans-serif;
+$ffSansSerif: 'Helvetica', Helvetica, Arial, sans-serif;
 $ffSerif: 'PolyItalic';
 $ffMonospace: 'SourceCodePro', Courier, monospace;
+$ffHeading: 'HelveticaBold', Helvetica, Arial, sans-serif;;
 
 // font families - aliases
-$ffHeading: $ffSansSerif;
 $ffBody: $ffSansSerif;
 $ffLabel: $ffSerif;
 $ffButtonLabel: $ffSansSerif;
